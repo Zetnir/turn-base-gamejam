@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://df5de3u4ui4ty"]
 
-[ext_resource type="Script" uid="uid://dy3fkk30mvpf0" path="res://Scripts/CombatSystem/mutiplayerCursorNavigator.gd" id="1_cdedo"]
+[ext_resource type="Script" uid="uid://bda07fdrqm2dk" path="res://Scripts/CombatSystem/MutiplayerCursorNavigator.gd" id="1_cdedo"]
 [ext_resource type="Texture2D" uid="uid://ct1pnfy2k0tfo" path="res://icon.svg" id="2_gqdax"]
 
 [node name="CursorNavigator" type="Control" unique_id=591851367 node_paths=PackedStringArray("enemy_anchor", "player_cursor")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

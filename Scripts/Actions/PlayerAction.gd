@@ -1,5 +1,6 @@
-extends Action
 class_name PlayerAction
+
+extends Action
 
 var player: Player
 
@@ -19,7 +20,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func apply_action(action_key: String, target: Character)->void:
-	var action = player_action_map[action_key]
+	var action = player_action_map.get(action_key)
 	if(player.action_points >= action.action_point):
 		match action.action_type:
 			ActionType.ATTACK:
