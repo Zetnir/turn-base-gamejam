@@ -1,7 +1,7 @@
 extends Control
-class_name MultiplayerCursorNavigation
+class_name MultiplayerCursorNavigator
 
-@export var buttons: Array[CombatButton]
+@export var buttons: Array[Button]
 @export var player_cursor: Array[TextureRect]
 @export var combat_manager: CombatManager
 
