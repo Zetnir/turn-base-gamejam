@@ -311,12 +311,10 @@ region = Rect2(55, 70, 34.581, 5.263)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qeewm")
-animation = &"death"
+animation = &"basicAttack"
 autoplay = "idle"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=620583184]
-
-[node name="PlayerUiManager" type="Control" parent="CanvasLayer" unique_id=1873439396 node_paths=PackedStringArray("health_bar", "light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon")]
+[node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("health_bar", "light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -328,7 +326,7 @@ medium_damage_icon = NodePath("MediumDamageIcon")
 high_damage_icon = NodePath("HighDamageIcon")
 very_high_damage_icon = NodePath("VeryHighDamageIcon")
 
-[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/PlayerUiManager" unique_id=963768982]
+[node name="healthBar" type="TextureProgressBar" parent="PlayerUiManager" unique_id=963768982]
 clip_contents = true
 layout_mode = 0
 offset_left = -28.0
@@ -340,7 +338,7 @@ value = 100.0
 texture_under = SubResource("AtlasTexture_jgh3u")
 texture_progress = SubResource("AtlasTexture_73iip")
 
-[node name="LightDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1999953554]
+[node name="LightDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1999953554]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -358,7 +356,7 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("9_shd1k")
 
-[node name="MediumDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=999938058]
+[node name="MediumDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=999938058]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -376,7 +374,7 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("10_5kd0c")
 
-[node name="HighDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1473891803]
+[node name="HighDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1473891803]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -392,7 +390,7 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("11_aal88")
 
-[node name="VeryHighDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1474092234]
+[node name="VeryHighDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1474092234]
 modulate = Color(1, 0.41960785, 0.41960785, 1)
 layout_mode = 1
 anchors_preset = 8
