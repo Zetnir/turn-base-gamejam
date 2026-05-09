@@ -6,8 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://ddqjyn31lesxt" path="res://Assets/Characters/Knight/Knight/Knight-Death.png" id="3_gc10f"]
 [ext_resource type="Texture2D" uid="uid://c3tt4rlrqas2g" path="res://Assets/Characters/Knight/Knight/Knight-Attack03.png" id="4_qkgjm"]
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="5_w38he"]
+[ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/PlayerUiManager.gd" id="7_meglp"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="7_w38he"]
-[ext_resource type="Texture2D" uid="uid://cc34e3uoa6gql" path="res://Assets/Icons/attackIcon.png" id="8_meglp"]
+[ext_resource type="Texture2D" uid="uid://bvvuf4ay83m52" path="res://Assets/Icons/lightAttack.png" id="9_shd1k"]
+[ext_resource type="Texture2D" uid="uid://bu8vfdejcjnqg" path="res://Assets/Icons/mediumAttack.png" id="10_5kd0c"]
+[ext_resource type="Texture2D" uid="uid://dwrr07f8qy3yr" path="res://Assets/Icons/highAttack.png" id="11_aal88"]
+[ext_resource type="Texture2D" uid="uid://dfn4g47gp8m60" path="res://Assets/Icons/veryHighAttack.png" id="12_4opfx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gc10f"]
 atlas = ExtResource("1_o5en2")
@@ -312,56 +316,96 @@ autoplay = "idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=620583184]
 
-[node name="PlayerUiManager" type="Control" parent="CanvasLayer" unique_id=1873439396]
+[node name="PlayerUiManager" type="Control" parent="CanvasLayer" unique_id=1873439396 node_paths=PackedStringArray("health_bar", "light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_meglp")
+health_bar = NodePath("healthBar")
+light_damage_icon = NodePath("LightDamageIcon")
+medium_damage_icon = NodePath("MediumDamageIcon")
+high_damage_icon = NodePath("HighDamageIcon")
+very_high_damage_icon = NodePath("VeryHighDamageIcon")
 
 [node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/PlayerUiManager" unique_id=963768982]
 clip_contents = true
 layout_mode = 0
-offset_left = -28.000015
-offset_top = 19.000008
-offset_right = 5.9999847
-offset_bottom = 24.000008
-scale = Vector2(1.645, 0.946)
+offset_left = -28.0
+offset_top = 19.0
+offset_right = 6.0
+offset_bottom = 24.0
+scale = Vector2(1.643, 0.945)
 value = 100.0
 texture_under = SubResource("AtlasTexture_jgh3u")
 texture_progress = SubResource("AtlasTexture_73iip")
 
 [node name="LightDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1999953554]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+modulate = Color(1, 0.41960785, 0.41960785, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -90.0
+offset_right = 12.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.325, 0.325)
-texture = ExtResource("8_meglp")
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("9_shd1k")
 
 [node name="MediumDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=999938058]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+modulate = Color(1, 0.41960785, 0.41960785, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -90.0
+offset_right = 12.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.325, 0.325)
-texture = ExtResource("8_meglp")
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("10_5kd0c")
 
 [node name="HighDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1473891803]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+modulate = Color(1, 0.41960785, 0.41960785, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.999998
+offset_top = -70.0
+offset_right = 12.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.325, 0.325)
-texture = ExtResource("8_meglp")
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("11_aal88")
 
 [node name="VeryHighDamageIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1474092234]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+modulate = Color(1, 0.41960785, 0.41960785, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -90.0
+offset_right = 12.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.325, 0.325)
-texture = ExtResource("8_meglp")
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("12_4opfx")

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bkg8korhmvj4p"]
 
 [ext_resource type="Texture2D" uid="uid://d1hg7ggvyd5c0" path="res://Assets/Characters/Orc/Orc/Orc-Idle.png" id="1_ccht0"]
+[ext_resource type="Script" uid="uid://cx5l8vp85xj1s" path="res://Scripts/enemy_ui_manager.gd" id="2_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="2_u7jc0"]
-[ext_resource type="Texture2D" uid="uid://cc34e3uoa6gql" path="res://Assets/Icons/attackIcon.png" id="3_4k6ug"]
+[ext_resource type="Texture2D" uid="uid://c784xgvyj2vcs" path="res://Assets/Icons/attackIcon.png" id="3_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://fyktg4g4p0ud" path="res://Assets/Icons/defenseIcon.png" id="4_xb08l"]
 [ext_resource type="Texture2D" uid="uid://bn7umdl5e4kis" path="res://Assets/Icons/debuffIcon.png" id="5_gdwie"]
 
@@ -72,20 +73,25 @@ region = Rect2(55, 70, 34.581, 5.263)
 [node name="Enemy" type="Node2D" unique_id=1065316994]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
-scale = Vector2(2, 2)
+scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_5s7gc")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756187501]
 
-[node name="PlayerUiManager" type="Control" parent="CanvasLayer" unique_id=362421365]
+[node name="EnemyUiManager" type="Control" parent="CanvasLayer" unique_id=362421365 node_paths=PackedStringArray("health_bar", "attack_icon", "defense_icon", "debuff_icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_4k6ug")
+health_bar = NodePath("healthBar")
+attack_icon = NodePath("AttackIcon")
+defense_icon = NodePath("DefenseIcon")
+debuff_icon = NodePath("DebuffIcon")
 
-[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/PlayerUiManager" unique_id=1253625678]
+[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/EnemyUiManager" unique_id=1253625678]
 clip_contents = true
 layout_mode = 0
 offset_left = -28.000015
@@ -97,29 +103,35 @@ value = 100.0
 texture_under = SubResource("AtlasTexture_ccht0")
 texture_progress = SubResource("AtlasTexture_u7jc0")
 
-[node name="AttackIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=2147066301]
+[node name="AttackIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=2147066301]
+modulate = Color(1, 0.42000002, 0.42000002, 1)
 layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
 scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("3_4k6ug")
 
-[node name="DefenseIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=904428707]
+[node name="DefenseIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=904428707]
+modulate = Color(0.83, 0.83566666, 1, 1)
 layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
 scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_xb08l")
 
-[node name="DebuffIcon" type="TextureRect" parent="CanvasLayer/PlayerUiManager" unique_id=1692678134]
+[node name="DebuffIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=1692678134]
+modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
 layout_mode = 0
-offset_left = -9.0
-offset_top = -52.0
-offset_right = 55.0
-offset_bottom = 12.0
-scale = Vector2(0.325, 0.325)
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.41, 0.41)
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("5_gdwie")
