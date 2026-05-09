@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="1_r04ol"]
 [ext_resource type="PackedScene" uid="uid://dwqmc152up01x" path="res://Scenes/Characters/LudoEnemy.tscn" id="2_mgcvd"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="3_mgcvd"]
-[ext_resource type="Script" uid="uid://cknw3hcgwefut" path="res://Scripts/CombatSystem/combatManager.gd" id="4_ogtya"]
+[ext_resource type="Script" path="res://Scripts/CombatSystem/combatManager.gd" id="4_ogtya"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]
 
 [node name="Player2" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("1_r04ol")]
-position = Vector2(238, 237)
+position = Vector2(362, 342)
 scale = Vector2(2, 2)
 multiplayer_cursor_navigator = NodePath("../CursorNavigator")
 
@@ -18,21 +18,25 @@ multiplayer_cursor_navigator = NodePath("../CursorNavigator")
 position = Vector2(700, 300)
 rotation = -3.1415925
 scale = Vector2(1, -1)
+damage = null
 
 [node name="Enemy2" parent="Enemies" unique_id=1101656939 instance=ExtResource("2_mgcvd")]
 position = Vector2(900, 300)
 rotation = -3.1415925
 scale = Vector2(1, -1)
+damage = null
 
 [node name="Enemy3" parent="Enemies" unique_id=1314412597 instance=ExtResource("2_mgcvd")]
 position = Vector2(600, 400)
 rotation = 3.1415925
 scale = Vector2(1, -1)
+damage = null
 
 [node name="Enemy4" parent="Enemies" unique_id=376030635 instance=ExtResource("2_mgcvd")]
 position = Vector2(800, 400)
 rotation = -3.1415925
 scale = Vector2(1, -1)
+damage = null
 
 [node name="CursorNavigator" parent="." unique_id=591851367 node_paths=PackedStringArray("combat_manager") instance=ExtResource("3_mgcvd")]
 combat_manager = NodePath("../CombatManager")

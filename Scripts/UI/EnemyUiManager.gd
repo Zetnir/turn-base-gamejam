@@ -1,16 +1,11 @@
-extends Control
+extends UiManager
 
-@export var health_bar: TextureProgressBar
 @export var attack_icon: TextureRect
 @export var defense_icon: TextureRect
 @export var debuff_icon: TextureRect
 
 enum ActionType { ATTACK, DEFENSE, DEBUFF }
-# HEALTH BAR
-func update_current_hp(current:int)-> void:
-	health_bar.value = current
-func update_max_hp(current:int)-> void:
-	health_bar.max_value = current
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_hide_all_action_icons()

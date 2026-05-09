@@ -15,7 +15,7 @@ var current_cursor_rows = 2
 var current_cursor_cols = 3
 
 var player_index : Array[int] = [0];
-var player_action: Array[int]= [-1]
+var player_action: Array[String]= [null]
 
 const CURSOR_SPACING = 40
 const CURSOR_BASE_OFFSET = -20
@@ -30,19 +30,19 @@ func _ready():
 # 	combat_manager.end_of_turn.connect(hide_all_player_navigation)
 	
 
-func trigger_player_navigation(player: int, action_index: int) -> void:
+func trigger_player_navigation(player: int, action_key: String) -> void:
 	if(!self.is_visible()):
 		self.show()
 
 	player_cursor[player].show()
-	player_action[player] = action_index
+	player_action[player] = action_key
 	update_cursor_position(player)
 
 func hide_player_navigation(player: int) -> void:
 	update_cursor_position(player)
 	player_cursor[player].hide()
 	player_index[player] = 0
-	player_action[player] = -1
+	player_action[player] = null
 
 	var all_players_done = true
 	for i in range(player_index.size()):

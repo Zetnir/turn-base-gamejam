@@ -2,6 +2,8 @@ extends Node
 
 class_name Character
 
+@export var ui_manager: UiManager
+
 var health = 100
 var shield = 0
 
@@ -11,14 +13,9 @@ var shield = 0
 
 # enum ACTION_TYPE {SWORD, ARROW, SHIELD, NONE}
 
-# func onHit(damage: int) -> void:
-# 	health -= damage
-# 	healthBar.update_health(health)
-# 	print("Target hit! Current health: %d" % health)
-# 	if health <= 0:
-# 		handleDeathAnimation()
-# 		return 
-# 	handleHurtAnimation()
+func on_hit(damage: int) -> void:
+	health -= damage
+	ui_manager.update_current_hp(health)
 	
 
 # func onAddShield(shieldValue: int) -> void:

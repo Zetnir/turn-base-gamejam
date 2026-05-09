@@ -1,7 +1,5 @@
-extends Control
+extends UiManager
 
-
-@export var health_bar: TextureProgressBar
 @export var light_damage_icon: TextureRect
 @export var medium_damage_icon: TextureRect
 @export var high_damage_icon: TextureRect
@@ -11,15 +9,6 @@ enum DamageLevel { NONE, LIGHT, MEDIUM, HIGH, VERY_HIGH }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_hide_all_damage_icons()
-	
-	
-# HEALTH BAR
-func update_current_hp(current:int)-> void:
-	health_bar.value = current
-func update_max_hp(current:int)-> void:
-	health_bar.max_value = current
-	
-	
 	
 func show_dmg_prediction(level: DamageLevel) -> void:
 	match level: 

@@ -20,7 +20,7 @@ func process_player_action(
 	player_index: int,
 	target_index: int,
 	target_type:TargetType,
-	action_index: int
+	action_key: String
 ) -> void:
 	var player = players[player_index]
 	var target: Character
@@ -30,7 +30,7 @@ func process_player_action(
 	if target_type == TargetType.PLAYER:
 		target = players[target_index]
 
-	player.process_action(action_index, target)
+	player.process_action(action_key, target)
 
 
 # func _process(_delta: float) -> void:

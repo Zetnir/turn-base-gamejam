@@ -8,9 +8,14 @@ class_name Player
 
 @export var player_index: int = 0
 
+var max_action_points: int = 6
+var action_points:int = max_action_points
+
+var player_action: PlayerAction
+
 # var basic_action = ACTION_TYPE.SWORD
 # var strong_action = ACTION_TYPE.ARROW
-# var defense_action = ACTION_TYPE.SHIELD
+# var defense_action = ACTION_TYPE.SHIELDx
 
 # var canPlay = false
 
@@ -19,17 +24,21 @@ func _ready() -> void:
 	if animated_sprite && !animated_sprite.is_playing():
 		animated_sprite.play("idle")
 
+	## Only 1 action at first
+	player_actions = PlayerAction(self)
+
 
 func _input(event):
 	if event.is_action_pressed("P%d_ACTION_1" % (player_index + 1)):
 		## TODO : Handle Action list and pass action index depending on input
-		multiplayer_cursor_navigator.trigger_player_navigation(player_index, 0)
+		multiplayer_cursor_navigator.trigger_player_navigation(player_index, "basic_attack")
 
 
 # #-------------------------------------------------------------------------------------
 # ## Player Actions 
 
-func process_action(action_index: int, target: Character) ->void:
+func process_action(action_key: String, target: Character) ->void:
+	player_action.apply_action(action_key, target)
 	print("player %d, process action %d, target %s" % [player_index, action_index, target.name])
 
 # func process_action(action: Character.ACTION_TYPE, target: Character) -> void:
