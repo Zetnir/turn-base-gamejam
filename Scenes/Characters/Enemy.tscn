@@ -237,9 +237,7 @@ sprite_frames = SubResource("SpriteFrames_5s7gc")
 animation = &"heavyAttack"
 autoplay = "idle"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756187501]
-
-[node name="EnemyUiManager" type="Control" parent="CanvasLayer" unique_id=362421365 node_paths=PackedStringArray("health_bar", "attack_icon", "defense_icon", "debuff_icon")]
+[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("health_bar", "attack_icon", "defense_icon", "debuff_icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -250,7 +248,7 @@ attack_icon = NodePath("AttackIcon")
 defense_icon = NodePath("DefenseIcon")
 debuff_icon = NodePath("DebuffIcon")
 
-[node name="healthBar" type="TextureProgressBar" parent="CanvasLayer/EnemyUiManager" unique_id=1253625678]
+[node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1253625678]
 clip_contents = true
 layout_mode = 0
 offset_left = -28.000015
@@ -262,7 +260,7 @@ value = 100.0
 texture_under = SubResource("AtlasTexture_ccht0")
 texture_progress = SubResource("AtlasTexture_u7jc0")
 
-[node name="AttackIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=2147066301]
+[node name="AttackIcon" type="TextureRect" parent="EnemyUiManager" unique_id=2147066301]
 modulate = Color(1, 0.42000002, 0.42000002, 1)
 layout_mode = 0
 offset_left = -31.999998
@@ -273,7 +271,7 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("3_4k6ug")
 
-[node name="DefenseIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=904428707]
+[node name="DefenseIcon" type="TextureRect" parent="EnemyUiManager" unique_id=904428707]
 modulate = Color(0.83, 0.83566666, 1, 1)
 layout_mode = 0
 offset_left = -31.999998
@@ -284,7 +282,7 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_xb08l")
 
-[node name="DebuffIcon" type="TextureRect" parent="CanvasLayer/EnemyUiManager" unique_id=1692678134]
+[node name="DebuffIcon" type="TextureRect" parent="EnemyUiManager" unique_id=1692678134]
 modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
 layout_mode = 0
 offset_left = -31.999998
