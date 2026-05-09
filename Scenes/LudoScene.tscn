@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://c4nemrocaok2j"]
 
-[ext_resource type="PackedScene" uid="uid://cji2pd3arxk57" path="res://Scenes/Characters/LudoPlayer.tscn" id="1_qkw6w"]
+[ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="1_r04ol"]
 [ext_resource type="PackedScene" uid="uid://dwqmc152up01x" path="res://Scenes/Characters/LudoEnemy.tscn" id="2_mgcvd"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="3_mgcvd"]
 [ext_resource type="Script" uid="uid://cknw3hcgwefut" path="res://Scripts/CombatSystem/combatManager.gd" id="4_ogtya"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]
 
-[node name="Player" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("1_qkw6w")]
-position = Vector2(335, 315)
+[node name="Player2" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("1_r04ol")]
+position = Vector2(238, 237)
+scale = Vector2(2, 2)
 multiplayer_cursor_navigator = NodePath("../CursorNavigator")
 
 [node name="Enemies" type="Node" parent="." unique_id=632854917]
@@ -41,4 +42,4 @@ anchor_grid_end = Vector2(900, 250)
 [node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("enemies", "players")]
 script = ExtResource("4_ogtya")
 enemies = [NodePath("../Enemies/Enemy"), NodePath("../Enemies/Enemy2"), NodePath("../Enemies/Enemy3"), NodePath("../Enemies/Enemy4")]
-players = [NodePath("../Player")]
+players = [NodePath("../Player2")]

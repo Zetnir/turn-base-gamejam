@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bx2hcbuuvoftm"]
 
+[ext_resource type="Script" uid="uid://812546gxbe0e" path="res://Scripts/Characters/player.gd" id="1_5kd0c"]
 [ext_resource type="Texture2D" uid="uid://cyroh7vc8xng1" path="res://Assets/Characters/Knight/Knight/Knight-Attack01.png" id="1_o5en2"]
 [ext_resource type="Texture2D" uid="uid://bfvf3iujcise0" path="res://Assets/Characters/Knight/Knight/Knight-Block.png" id="2_7pt4t"]
 [ext_resource type="Texture2D" uid="uid://1apunjse0c0v" path="res://Assets/Characters/Knight/Knight/Knight-Idle.png" id="3_7qdam"]
 [ext_resource type="Texture2D" uid="uid://ddqjyn31lesxt" path="res://Assets/Characters/Knight/Knight/Knight-Death.png" id="3_gc10f"]
 [ext_resource type="Texture2D" uid="uid://c3tt4rlrqas2g" path="res://Assets/Characters/Knight/Knight/Knight-Attack03.png" id="4_qkgjm"]
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="5_w38he"]
-[ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/PlayerUiManager.gd" id="7_meglp"]
+[ext_resource type="Script" path="res://Scripts/PlayerUiManager.gd" id="7_meglp"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="7_w38he"]
 [ext_resource type="Texture2D" uid="uid://bvvuf4ay83m52" path="res://Assets/Icons/lightAttack.png" id="9_shd1k"]
 [ext_resource type="Texture2D" uid="uid://bu8vfdejcjnqg" path="res://Assets/Icons/mediumAttack.png" id="10_5kd0c"]
@@ -306,7 +307,9 @@ region = Rect2(295.034, 70.026, 34.811, 5.212)
 atlas = ExtResource("7_w38he")
 region = Rect2(55, 70, 34.581, 5.263)
 
-[node name="Player" type="Node2D" unique_id=1549374177]
+[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("1_5kd0c")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
 scale = Vector2(2, 2)

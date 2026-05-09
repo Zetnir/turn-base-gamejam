@@ -5,7 +5,7 @@ class_name CombatManager
 @export var players: Array[Player]
 
 enum TargetType {
-    PLAYER, ENEMY
+	PLAYER, ENEMY
 }
 # @export var selectionPanel: EnemySelectionPanel
 
@@ -17,20 +17,20 @@ enum TargetType {
 # signal end_of_turn()
 
 func process_player_action(
-    player_index: int,
-    target_index: int,
-    target_type:TargetType,
-    action_index: int
+	player_index: int,
+	target_index: int,
+	target_type:TargetType,
+	action_index: int
 ) -> void:
-    var player = players[player_index]
-    var target: Character
-    if target_type == TargetType.ENEMY:
-        target = enemies[target_index]
-    ## TODO : Enable player targeting in navigator
-    if target_type == TargetType.PLAYER:
-        target = players[target_index]
+	var player = players[player_index]
+	var target: Character
+	if target_type == TargetType.ENEMY:
+		target = enemies[target_index]
+	## TODO : Enable player targeting in navigator
+	if target_type == TargetType.PLAYER:
+		target = players[target_index]
 
-    player.process_action(action_index, target)
+	player.process_action(action_index, target)
 
 
 # func _process(_delta: float) -> void:
