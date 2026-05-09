@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cji2pd3arxk57"]
 
 [ext_resource type="Texture2D" uid="uid://cyroh7vc8xng1" path="res://Assets/Characters/Knight/Knight/Knight-Attack01.png" id="1_gafh8"]
+[ext_resource type="Script" uid="uid://812546gxbe0e" path="res://Scripts/Characters/player.gd" id="1_ljx51"]
 [ext_resource type="Texture2D" uid="uid://bfvf3iujcise0" path="res://Assets/Characters/Knight/Knight/Knight-Block.png" id="2_ljx51"]
 [ext_resource type="Texture2D" uid="uid://1apunjse0c0v" path="res://Assets/Characters/Knight/Knight/Knight-Idle.png" id="3_enb54"]
 
@@ -141,7 +142,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Player" type="Node2D" unique_id=1549374177]
+[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("1_ljx51")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
 scale = Vector2(4, 4)

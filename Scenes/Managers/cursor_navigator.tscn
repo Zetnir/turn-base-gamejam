@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://df5de3u4ui4ty"]
+
+[ext_resource type="Script" uid="uid://dy3fkk30mvpf0" path="res://Scripts/CombatSystem/mutiplayerCursorNavigator.gd" id="1_cdedo"]
+[ext_resource type="Texture2D" uid="uid://ct1pnfy2k0tfo" path="res://icon.svg" id="2_gqdax"]
+
+[node name="CursorNavigator" type="Control" unique_id=591851367 node_paths=PackedStringArray("enemy_anchor", "player_cursor")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cdedo")
+enemy_anchor = [NodePath("EnemyPos"), NodePath("EnemyPos2"), NodePath("EnemyPos3"), NodePath("EnemyPos4"), NodePath("EnemyPos5"), NodePath("EnemyPos6")]
+player_cursor = [NodePath("PlayerCursor1"), NodePath("PlayerCursor2"), NodePath("PlayerCursor3"), NodePath("PlayerCursor4")]
+
+[node name="EnemyPos" type="Button" parent="." unique_id=589118391]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="EnemyPos2" type="Button" parent="." unique_id=1608596739]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="EnemyPos3" type="Button" parent="." unique_id=1220151894]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="EnemyPos4" type="Button" parent="." unique_id=1815882042]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="EnemyPos5" type="Button" parent="." unique_id=639034004]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="EnemyPos6" type="Button" parent="." unique_id=1291343945]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -92.0
+offset_bottom = -92.0
+
+[node name="PlayerCursor1" type="TextureRect" parent="." unique_id=1130143592]
+layout_mode = 0
+offset_left = -196.0
+offset_top = 28.0
+offset_right = -137.0
+offset_bottom = 83.0
+texture = ExtResource("2_gqdax")
+expand_mode = 1
+
+[node name="PlayerCursor2" type="TextureRect" parent="." unique_id=428387659]
+layout_mode = 0
+offset_left = -195.0
+offset_top = 99.0
+offset_right = -136.0
+offset_bottom = 154.0
+texture = ExtResource("2_gqdax")
+expand_mode = 1
+
+[node name="PlayerCursor3" type="TextureRect" parent="." unique_id=2052665648]
+layout_mode = 0
+offset_left = -198.0
+offset_top = 170.0
+offset_right = -139.0
+offset_bottom = 225.0
+texture = ExtResource("2_gqdax")
+expand_mode = 1
+
+[node name="PlayerCursor4" type="TextureRect" parent="." unique_id=1600377883]
+layout_mode = 0
+offset_left = -201.0
+offset_top = 236.0
+offset_right = -142.0
+offset_bottom = 291.0
+texture = ExtResource("2_gqdax")
+expand_mode = 1
