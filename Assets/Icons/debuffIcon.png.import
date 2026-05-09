@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lfknuaogx7sc"
-path="res://.godot/imported/healthBar.png-27e725fb75f98beddaa85160297508fe.ctex"
+uid="uid://bn7umdl5e4kis"
+path="res://.godot/imported/debuffIcon.png-e58e21b39a4b78092796077ab53392c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/healthBar.png"
-dest_files=["res://.godot/imported/healthBar.png-27e725fb75f98beddaa85160297508fe.ctex"]
+source_file="res://Assets/Icons/debuffIcon.png"
+dest_files=["res://.godot/imported/debuffIcon.png-e58e21b39a4b78092796077ab53392c8.ctex"]
 
 [params]
 
