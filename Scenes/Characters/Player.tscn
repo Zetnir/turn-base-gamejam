@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="5_w38he"]
 [ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/PlayerUiManager.gd" id="7_meglp"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="7_w38he"]
+[ext_resource type="Texture2D" uid="uid://dugje7k20wol3" path="res://Assets/Icons/actionGauge.png" id="9_5kd0c"]
 [ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/fc1057.png" id="9_shd1k"]
 [ext_resource type="Texture2D" uid="uid://b0bkvahadqipn" path="res://Assets/Icons/fc1058.png" id="10_5kd0c"]
+[ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="10_aal88"]
 [ext_resource type="Texture2D" uid="uid://dy274tg0k0og4" path="res://Assets/Icons/fc1059.png" id="11_aal88"]
 [ext_resource type="Texture2D" uid="uid://crn7cvdu7ml0x" path="res://Assets/Icons/fc1063.png" id="12_4opfx"]
 
@@ -314,7 +316,7 @@ sprite_frames = SubResource("SpriteFrames_qeewm")
 animation = &"basicAttack"
 autoplay = "idle"
 
-[node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("health_bar", "light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon")]
+[node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("health_bar", "light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon", "action_point_current", "action_gauge")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -325,6 +327,8 @@ light_damage_icon = NodePath("LightDamageIcon")
 medium_damage_icon = NodePath("MediumDamageIcon")
 high_damage_icon = NodePath("HighDamageIcon")
 very_high_damage_icon = NodePath("VeryHighDamageIcon")
+action_point_current = NodePath("actionGauge/actionPointCurrent")
+action_gauge = NodePath("actionGauge")
 
 [node name="healthBar" type="TextureProgressBar" parent="PlayerUiManager" unique_id=963768982]
 clip_contents = true
@@ -337,6 +341,33 @@ scale = Vector2(1.643, 0.945)
 value = 100.0
 texture_under = SubResource("AtlasTexture_jgh3u")
 texture_progress = SubResource("AtlasTexture_73iip")
+
+[node name="actionGauge" type="TextureProgressBar" parent="PlayerUiManager" unique_id=838042629]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -48.0
+offset_right = 57.0
+offset_bottom = 16.0
+scale = Vector2(0.305, 0.305)
+pivot_offset = Vector2(32, 32)
+max_value = 5.0
+value = 5.0
+fill_mode = 3
+texture_under = ExtResource("9_5kd0c")
+texture_progress = ExtResource("9_5kd0c")
+tint_progress = Color(0.47308242, 1.2700531, 1.5598607, 1)
+
+[node name="actionPointCurrent" type="Label" parent="PlayerUiManager/actionGauge" unique_id=1192011076]
+layout_mode = 0
+offset_left = 12.327869
+offset_top = 22.163935
+offset_right = 52.32787
+offset_bottom = 45.163933
+pivot_offset = Vector2(20, 11.5)
+theme_override_fonts/font = ExtResource("10_aal88")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LightDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1999953554]
 layout_mode = 1
@@ -356,6 +387,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("9_shd1k")
 
 [node name="MediumDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=999938058]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -373,6 +405,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("10_5kd0c")
 
 [node name="HighDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1473891803]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
@@ -388,6 +421,7 @@ pivot_offset = Vector2(32, 32)
 texture = ExtResource("11_aal88")
 
 [node name="VeryHighDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1474092234]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

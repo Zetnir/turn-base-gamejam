@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdxeloje68s4d" path="res://Assets/Characters/Orc/Orc/Orc-Attack01.png" id="1_blhco"]
 [ext_resource type="Texture2D" uid="uid://d1hg7ggvyd5c0" path="res://Assets/Characters/Orc/Orc/Orc-Idle.png" id="1_ccht0"]
-[ext_resource type="Script" uid="uid://cx5l8vp85xj1s" path="res://Scripts/enemy_ui_manager.gd" id="2_4k6ug"]
+[ext_resource type="Script" uid="uid://cx5l8vp85xj1s" path="res://Scripts/EnemyUiManager.gd" id="2_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://bosjvbu10cbia" path="res://Assets/Characters/Orc/Orc/Orc-Death.png" id="2_kjg46"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="2_u7jc0"]
 [ext_resource type="Texture2D" uid="uid://c784xgvyj2vcs" path="res://Assets/Icons/attackIcon.png" id="3_4k6ug"]
