@@ -15,7 +15,7 @@ var current_cursor_rows = 2
 var current_cursor_cols = 3
 
 var player_index : Array[int] = [0];
-var player_action: Array[String]= [null]
+var player_action: Array[String]= [""]
 
 const CURSOR_SPACING = 40
 const CURSOR_BASE_OFFSET = -20
@@ -42,7 +42,7 @@ func hide_player_navigation(player: int) -> void:
 	update_cursor_position(player)
 	player_cursor[player].hide()
 	player_index[player] = 0
-	player_action[player] = null
+	player_action[player] = ""
 
 	var all_players_done = true
 	for i in range(player_index.size()):

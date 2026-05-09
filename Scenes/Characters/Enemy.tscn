@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cdxeloje68s4d" path="res://Assets/Characters/Orc/Orc/Orc-Attack01.png" id="1_blhco"]
 [ext_resource type="Texture2D" uid="uid://d1hg7ggvyd5c0" path="res://Assets/Characters/Orc/Orc/Orc-Idle.png" id="1_ccht0"]
-[ext_resource type="Script" uid="uid://cx5l8vp85xj1s" path="res://Scripts/EnemyUiManager.gd" id="2_4k6ug"]
+[ext_resource type="Script" uid="uid://dgsdiyt6dytpk" path="res://Scripts/Characters/Enemy.gd" id="1_kjg46"]
+[ext_resource type="Script" uid="uid://cstjwk5p4jcjq" path="res://Scripts/EnemyUiManager.gd" id="2_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://bosjvbu10cbia" path="res://Assets/Characters/Orc/Orc/Orc-Death.png" id="2_kjg46"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="2_u7jc0"]
 [ext_resource type="Texture2D" uid="uid://c784xgvyj2vcs" path="res://Assets/Icons/attackIcon.png" id="3_4k6ug"]
@@ -230,6 +231,7 @@ atlas = ExtResource("2_u7jc0")
 region = Rect2(55, 70, 34.581, 5.263)
 
 [node name="Enemy" type="Node2D" unique_id=1065316994]
+script = ExtResource("1_kjg46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)
@@ -237,16 +239,16 @@ sprite_frames = SubResource("SpriteFrames_5s7gc")
 animation = &"heavyAttack"
 autoplay = "idle"
 
-[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("health_bar", "attack_icon", "defense_icon", "debuff_icon")]
+[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "debuff_icon", "health_bar")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_4k6ug")
-health_bar = NodePath("healthBar")
 attack_icon = NodePath("AttackIcon")
 defense_icon = NodePath("DefenseIcon")
 debuff_icon = NodePath("DebuffIcon")
+health_bar = NodePath("healthBar")
 
 [node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1253625678]
 clip_contents = true

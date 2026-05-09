@@ -1,6 +1,5 @@
-extends Character
-
 class_name Player
+extends Character
 
 @export var multiplayer_cursor_navigator: MultiplayerCursorNavigator
 
@@ -25,7 +24,7 @@ func _ready() -> void:
 		animated_sprite.play("idle")
 
 	## Only 1 action at first
-	player_actions = PlayerAction(self)
+	player_action = PlayerAction.new(self)
 
 
 func _input(event):
@@ -38,8 +37,9 @@ func _input(event):
 # ## Player Actions 
 
 func process_action(action_key: String, target: Character) ->void:
+	print("target : ", target)
 	player_action.apply_action(action_key, target)
-	print("player %d, process action %d, target %s" % [player_index, action_index, target.name])
+	print("player %d, process action %d, target %s" % [player_index, action_key, target.name])
 
 # func process_action(action: Character.ACTION_TYPE, target: Character) -> void:
 # 	var playerAction = PlayerAction.new(self)

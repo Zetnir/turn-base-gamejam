@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c4nemrocaok2j"]
 
 [ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="1_r04ol"]
-[ext_resource type="PackedScene" uid="uid://dwqmc152up01x" path="res://Scenes/Characters/LudoEnemy.tscn" id="2_mgcvd"]
+[ext_resource type="PackedScene" uid="uid://bkg8korhmvj4p" path="res://Scenes/Characters/Enemy.tscn" id="2_ogtya"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="3_mgcvd"]
-[ext_resource type="Script" path="res://Scripts/CombatSystem/combatManager.gd" id="4_ogtya"]
+[ext_resource type="Script" uid="uid://diae622d3sil1" path="res://Scripts/CombatSystem/CombatManager.gd" id="4_ogtya"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]
 
@@ -14,29 +14,21 @@ multiplayer_cursor_navigator = NodePath("../CursorNavigator")
 
 [node name="Enemies" type="Node" parent="." unique_id=632854917]
 
-[node name="Enemy" parent="Enemies" unique_id=1920969962 instance=ExtResource("2_mgcvd")]
+[node name="EnemyOfficiel" parent="Enemies" unique_id=1065316994 instance=ExtResource("2_ogtya")]
 position = Vector2(700, 300)
-rotation = -3.1415925
-scale = Vector2(1, -1)
-damage = null
+scale = Vector2(2, 2)
 
-[node name="Enemy2" parent="Enemies" unique_id=1101656939 instance=ExtResource("2_mgcvd")]
+[node name="EnemyOfficiel2" parent="Enemies" unique_id=1197673905 instance=ExtResource("2_ogtya")]
 position = Vector2(900, 300)
-rotation = -3.1415925
-scale = Vector2(1, -1)
-damage = null
+scale = Vector2(2, 2)
 
-[node name="Enemy3" parent="Enemies" unique_id=1314412597 instance=ExtResource("2_mgcvd")]
+[node name="EnemyOfficiel3" parent="Enemies" unique_id=580340449 instance=ExtResource("2_ogtya")]
 position = Vector2(600, 400)
-rotation = 3.1415925
-scale = Vector2(1, -1)
-damage = null
+scale = Vector2(2, 2)
 
-[node name="Enemy4" parent="Enemies" unique_id=376030635 instance=ExtResource("2_mgcvd")]
+[node name="EnemyOfficiel4" parent="Enemies" unique_id=193646749 instance=ExtResource("2_ogtya")]
 position = Vector2(800, 400)
-rotation = -3.1415925
-scale = Vector2(1, -1)
-damage = null
+scale = Vector2(2, 2)
 
 [node name="CursorNavigator" parent="." unique_id=591851367 node_paths=PackedStringArray("combat_manager") instance=ExtResource("3_mgcvd")]
 combat_manager = NodePath("../CombatManager")
@@ -45,5 +37,5 @@ anchor_grid_end = Vector2(900, 250)
 
 [node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("enemies", "players")]
 script = ExtResource("4_ogtya")
-enemies = [NodePath("../Enemies/Enemy"), NodePath("../Enemies/Enemy2"), NodePath("../Enemies/Enemy3"), NodePath("../Enemies/Enemy4")]
+enemies = [null, null, null, null]
 players = [NodePath("../Player2")]

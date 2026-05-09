@@ -9,4 +9,3 @@ func _ready() -> void:
 	if animated_sprite:
 		animated_sprite.play("Idle")
 	health = 50
-
