@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crn7cvdu7ml0x"
-path="res://.godot/imported/fc1063.png-02cefdb5d96f9fb76e5f00557c9e47ba.ctex"
+uid="uid://npslevbxbu7e"
+path="res://.godot/imported/hitImpact.png-d109fc228d414c4e9d00f02db05a30e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/fc1063.png"
-dest_files=["res://.godot/imported/fc1063.png-02cefdb5d96f9fb76e5f00557c9e47ba.ctex"]
+source_file="res://Assets/VFX/hitImpact.png"
+dest_files=["res://.godot/imported/hitImpact.png-d109fc228d414c4e9d00f02db05a30e4.ctex"]
 
 [params]
 

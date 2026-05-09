@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0bkvahadqipn"
-path="res://.godot/imported/fc1058.png-12c831d3238667996347e4ae08e467ec.ctex"
+uid="uid://llw5lwrs776o"
+path="res://.godot/imported/heavyImpact.png-f267f5668183a0209fba306f34782b62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/fc1058.png"
-dest_files=["res://.godot/imported/fc1058.png-12c831d3238667996347e4ae08e467ec.ctex"]
+source_file="res://Assets/VFX/heavyImpact.png"
+dest_files=["res://.godot/imported/heavyImpact.png-f267f5668183a0209fba306f34782b62.ctex"]
 
 [params]
 
