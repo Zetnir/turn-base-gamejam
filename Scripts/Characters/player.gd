@@ -2,6 +2,7 @@ class_name Player
 extends Character
 
 @export var multiplayer_cursor_navigator: MultiplayerCursorNavigator
+@export var player_action: PlayerAction
 
 @export var animated_sprite: AnimatedSprite2D
 
@@ -10,7 +11,7 @@ extends Character
 var max_action_points: int = 6
 var action_points:int = max_action_points
 
-var player_action: PlayerAction
+var player_ui_manager: PlayerUiManager
 
 # var basic_action = ACTION_TYPE.SWORD
 # var strong_action = ACTION_TYPE.ARROW
@@ -23,15 +24,19 @@ func _ready() -> void:
 	if animated_sprite && !animated_sprite.is_playing():
 		animated_sprite.play("idle")
 
-	## Only 1 action at first
-	player_action = PlayerAction.new(self)
+	player_ui_manager = ui_manager as PlayerUiManager
+	player_ui_manager.update_current_ap(action_points)
 
 
 func _input(event):
 	if event.is_action_pressed("P%d_ACTION_1" % (player_index + 1)):
-		## TODO : Handle Action list and pass action index depending on input
 		multiplayer_cursor_navigator.trigger_player_navigation(player_index, "basic_attack")
-
+	if event.is_action_pressed("P%d_ACTION_2" % (player_index + 1)):
+		multiplayer_cursor_navigator.trigger_player_navigation(player_index, "heavy_attack")
+	if event.is_action_pressed("P%d_ACTION_3" % (player_index + 1)):
+		multiplayer_cursor_navigator.trigger_player_navigation(player_index, "guard")
+	if event.is_action_pressed("P%d_ACTION_4" % (player_index + 1)):
+		multiplayer_cursor_navigator.trigger_player_navigation(player_index, "provocation")
 
 # #-------------------------------------------------------------------------------------
 # ## Player Actions 
@@ -39,7 +44,28 @@ func _input(event):
 func process_action(action_key: String, target: Character) ->void:
 	print("target : ", target)
 	player_action.apply_action(action_key, target)
-	print("player %d, process action %d, target %s" % [player_index, action_key, target.name])
+
+func consume_action_points(value: int)->void:
+	action_points -= value
+	player_ui_manager.update_current_ap(action_points)
+
+
+# #-------------------------------------------------------------------------------------
+# ## Player Animations
+
+func idle_anim()->void:
+	animated_sprite.play("idle")
+
+func play_action_anim(animation_key: String)->void:
+	animated_sprite.play(animation_key)
+	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
+
+func hurt_anim()->void:
+	animated_sprite.play("hurt")
+	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
+
+func death_anim()->void:
+	animated_sprite.play("death")
 
 # func process_action(action: Character.ACTION_TYPE, target: Character) -> void:
 # 	var playerAction = PlayerAction.new(self)

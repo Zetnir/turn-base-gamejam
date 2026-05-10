@@ -89,7 +89,8 @@ func _unhandled_input(event):
 
 		if event.is_action_pressed("P%d_ACCEPT" % (i + 1)):
 			var enemy_index = player_index[i]
-			on_player_accept(i, enemy_index)
+			if player_action[i] != "":
+				on_player_accept(i, enemy_index)
 
 func update_cursor_position(player):
 	var num_players = player_index.size()

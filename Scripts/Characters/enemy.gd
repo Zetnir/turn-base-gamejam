@@ -7,5 +7,5 @@ class_name Enemy
 
 func _ready() -> void:
 	if animated_sprite:
-		animated_sprite.play("Idle")
+		animated_sprite.play("idle")
 	health = 50

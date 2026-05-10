@@ -1,4 +1,5 @@
 extends UiManager
+class_name EnemyUiManager
 
 @export var attack_icon: TextureRect
 @export var defense_icon: TextureRect
