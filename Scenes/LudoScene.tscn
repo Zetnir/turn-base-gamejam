@@ -17,7 +17,7 @@ texture = ExtResource("1_0yd7g")
 position = Vector2(331, 277)
 scale = Vector2(2, 2)
 multiplayer_cursor_navigator = NodePath("../CursorNavigator")
-max_action_points = 2000
+max_action_points = 100
 
 [node name="Enemies" type="Node" parent="." unique_id=632854917]
 

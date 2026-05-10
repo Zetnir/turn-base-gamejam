@@ -204,7 +204,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_74qtn")
 }],
-"loop": true,
+"loop": false,
 "name": &"defDebuff",
 "speed": 10.0
 }, {
@@ -248,7 +248,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jrawb")
 }],
-"loop": true,
+"loop": false,
 "name": &"guard",
 "speed": 12.0
 }, {
@@ -274,7 +274,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wojf8")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 16.0
 }]

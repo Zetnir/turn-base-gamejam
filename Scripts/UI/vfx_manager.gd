@@ -1,4 +1,6 @@
 extends Node2D
+class_name VfxManager
+
 @export var vfx_sprite_2d_01: AnimatedSprite2D
 @export var vfx_sprite_2d_02: AnimatedSprite2D
 
@@ -17,7 +19,7 @@ func play_hit(target_position: Vector2) -> void:
 	vfx_sprite_2d_01.visible = false
 	
 	
-func play_atkDebuff(target_position: Vector2) -> void:
+func play_atk_debuff(target_position: Vector2) -> void:
 	global_position = target_position
 	vfx_sprite_2d_01.visible = true
 	vfx_sprite_2d_01.play("atkDebuff")
@@ -25,7 +27,7 @@ func play_atkDebuff(target_position: Vector2) -> void:
 	vfx_sprite_2d_01.visible = false
 	
 	
-func play_defDebuff(target_position: Vector2) -> void:
+func play_def_debuff(target_position: Vector2) -> void:
 	global_position = target_position
 	vfx_sprite_2d_01.visible = true
 	vfx_sprite_2d_01.play("defDebuff")

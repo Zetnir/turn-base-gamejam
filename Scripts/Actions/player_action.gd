@@ -8,7 +8,6 @@ var player: Player
 	"heavy_attack": { "damage": 30, "action_type":ActionType.ATTACK, "action_point": 5, "anim":"heavyAttack", "description": "Damn bro, you're not kidding"},
 	"guard": { "block": 10,"action_type":ActionType.PROTECTION, "action_point": 3, "anim":"guard", "description": "Ok ok you're a big guy, i get it"},
 	"provocation": { "percentAggro": 30,"action_type":ActionType.PROVOCATION, "action_point": 4, "anim":"provocation", "description": "You're so annoying, If i could i would hit you too"},
-
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -33,7 +32,11 @@ func apply_action(action_key: String, target: Character)->void:
 			ActionType.BUFF:
 				pass
 			ActionType.PROTECTION:
-				pass
+				player.consume_action_points(action.action_point)
+				player.play_action_anim(action.anim)
+				await player.get_tree().create_timer(.5).timeout
+				player.on_protection(action.block)
+
 				# player.consume_action_points(action.action_point)
 				# player.play_action_anim(action.anim)
 				# await player.get_tree().create_timer(.5).timeout

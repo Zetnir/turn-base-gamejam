@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://ckmhgdu0rsxkf" path="res://Scenes/UI/EnemyUi.tscn" id="7_4k6ug"]
 [ext_resource type="Script" uid="uid://cfjkxnn7c1xi4" path="res://Scripts/Actions/enemy_action.gd" id="8_xb08l"]
 
-[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite")]
+[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite", "vfx_manager")]
 script = ExtResource("1_kjg46")
 enemy_action = NodePath("EnemyAction")
 ui_manager = NodePath("EnemyUiManager")
 animated_sprite = NodePath("AnimatedSprite2D")
+vfx_manager = NodePath("VfxManager")
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_gdwie")]
+z_index = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)

@@ -31,7 +31,12 @@ func _ready():
 # 	combat_manager.end_of_turn.connect(hide_all_player_navigation)
 
 
-func trigger_player_navigation(player: int, action_key: String) -> void:
+func trigger_player_navigation(player: int, action_key: String, is_instant:bool = false) -> void:
+	if is_instant:
+		player_action[player] = action_key
+		on_player_accept(player, -1)
+		return
+
 	if(!self.is_visible()):
 		self.show()
 

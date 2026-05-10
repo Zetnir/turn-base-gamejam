@@ -6,22 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://dkiro5ywp01hu" path="res://Scenes/UI/PlayerUi.tscn" id="9_meglp"]
 [ext_resource type="Script" uid="uid://tj46n7qfplyt" path="res://Scripts/Actions/player_action.gd" id="16_vtvfp"]
 
-[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "ui_manager", "animated_sprite")]
+[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "ui_manager", "animated_sprite", "vfx_manager")]
 script = ExtResource("1_4opfx")
 player_action = NodePath("ActionPlayer")
 ui_manager = NodePath("PlayerUiManager")
 animated_sprite = NodePath("AnimatedSprite2D")
+vfx_manager = NodePath("VfxManager")
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_7qdam")]
+z_index = 2
+
+[node name="PlayerUiManager" parent="." unique_id=1895891118 instance=ExtResource("9_meglp")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
 modulate = Color(1, 0.69411767, 0.52156866, 1)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_7pt4t")
-animation = &"idle"
+animation = &"guard"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="ActionPlayer" type="Node" parent="." unique_id=102161743]
 script = ExtResource("16_vtvfp")
-
-[node name="PlayerUiManager" parent="." unique_id=1895891118 instance=ExtResource("9_meglp")]

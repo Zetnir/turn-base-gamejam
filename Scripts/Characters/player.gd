@@ -38,9 +38,9 @@ func _input(event):
 		if event.is_action_pressed("P%d_ACTION_2" % (player_index + 1)):
 			multiplayer_cursor_navigator.trigger_player_navigation(player_index, "heavy_attack")
 		if event.is_action_pressed("P%d_ACTION_3" % (player_index + 1)):
-			multiplayer_cursor_navigator.trigger_player_navigation(player_index, "guard")
+			multiplayer_cursor_navigator.trigger_player_navigation(player_index, "guard", true)
 		if event.is_action_pressed("P%d_ACTION_4" % (player_index + 1)):
-			multiplayer_cursor_navigator.trigger_player_navigation(player_index, "provocation")
+			multiplayer_cursor_navigator.trigger_player_navigation(player_index, "provocation", true)
 
 # #-------------------------------------------------------------------------------------
 # ## Player Actions 
