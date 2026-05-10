@@ -8,8 +8,10 @@ enum TargetType {
 	PLAYER, ENEMY
 }
 
+var is_processing_turn = false
 var is_players_turn = false
 var is_enemies_turn = false
+
 var turn_index = 0
 
 @export var turn_time_window = 10
@@ -26,10 +28,13 @@ var turn_index = 0
 
 # signal end_of_turn()
 
+func _ready() -> void:
+	is_players_turn = true
+
 func _process(_delta):
-	if !is_players_turn && !is_enemies_turn:
+	if is_players_turn && !is_processing_turn:
 		handle_players_turn()
-	elif !is_players_turn && is_enemies_turn:
+	elif is_enemies_turn && !is_processing_turn:
 		handle_enemies_turn()
 
 
@@ -41,13 +46,19 @@ func _process(_delta):
 # ## Enemies
 
 func handle_enemies_turn()->void:
+	is_processing_turn = true
 	turn_index +=1
+
+	print("process enemy turn")
 
 	for enemy in enemies:
 		enemy.process_action(players)
 		await get_tree().create_timer(enemy_turn_window).timeout
 
+	await get_tree().create_timer(2).timeout
 	is_enemies_turn = false
+	is_players_turn = true
+	is_processing_turn = false
 
 
 # #-------------------------------------------------------------------------------------
@@ -70,7 +81,7 @@ func process_player_action(
 	player.process_action(action_key, target)
 
 func handle_players_turn()->void:
-	is_players_turn = true
+	is_processing_turn = true
 	for player in players:
 		player.can_play = true
 		player.reset_action_points()
@@ -78,10 +89,12 @@ func handle_players_turn()->void:
 	## TODO : Remove after tests
 	test_label.text = "Players turn"
 
+	print("handle player turn")
 	await get_tree().create_timer(turn_time_window).timeout
 
 	is_enemies_turn = true
 	is_players_turn = false
+	is_processing_turn = false
 	for player in players:
 		player.can_play = false
 

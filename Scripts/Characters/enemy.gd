@@ -1,8 +1,12 @@
 extends Character
-
 class_name Enemy
 
-@export var animated_sprite: AnimatedSprite2D
+@export var enemy_action: EnemyAction
+
+var percent_attack = 40
+var percent_block = 30
+var percent_debuff_attack = 15
+var percent_debuff_defense = 15
 
 func _ready() -> void:
 	if animated_sprite:
@@ -12,25 +16,66 @@ func _ready() -> void:
 # ## Enemy Actions and AI
 
 func process_action(players: Array[Player])-> void:
-	var action = choose_action(players)
+	var action_key = choose_action()
 	var target = choose_target(players)
+	enemy_action.apply_action(action_key, target)
 	
-
+## Choose Action
 ## TODO : Choose ActionType based 
-func choose_action(players: Array[Player])->EnemyAction:
-	var enemy_action: EnemyAction
-	return enemy_action
+func choose_action()->String:
+	var total = 0
+	var actions = enemy_action.enemy_action_map
+	for key in actions:
+		total += actions.get(key).weight
+	
+	var roll = randf_range(0.0,1.0) * total
 
+	var cumulative = 0.0
+	var choosen_key = ""
+	for key in actions:
+		cumulative += actions.get(key).weight
+		if roll <= cumulative:
+			choosen_key = key
+			break
+
+	# var enemy_action = enemy_action.
+	return choosen_key
+
+## TODO Do the scoring for AI Attack choose
+# func score_attack()->float:
+# 	var  score = 0.0
+
+# 	if(health / max_health <= 0.4):
+# 		score += 35.0
+# 	return score
+
+# func score_defense(players: Array[Player])->float:
+# 	var score = 0.0
+
+# 	var strongest_power = 0.0
+# 	for player in players:
+# 		if player.power_percent > strongest_power:
+# 			strongest_power = player.power_percent
+# 	if strongest_power >= 120.0:
+# 		score += 15.0
+
+# 	if(health / max_health <= 0.4):
+# 		score += 35.0
+# 	return score
+
+# func score_debuff_attack()->float:
+# 	return 0.0
+
+# func score_debuff_defense()->float:
+# 	return 0.0
+
+## Choose Target
 func choose_target(players: Array[Player])->Player:
-	var player: Player
-	return player
+
+	var target: Player
+	var roll_index = randi_range(0,players.size() - 1)
+	target = players[roll_index]
+	return target
 
 # #-------------------------------------------------------------------------------------
 # ## Enemy Animations
-
-func idle_anim()->void:
-	animated_sprite.play("idle")
-
-func hurt_anim()->void:
-	animated_sprite.play("hurt")
-	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
