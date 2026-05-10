@@ -4,9 +4,13 @@ class_name Player
 @export var multiplayer_cursor_navigator: MultiplayerCursorNavigator
 @export var player_action: PlayerAction
 
+@export var light_damage_tresh = 0.2
+@export var medium_damage_tresh = 0.4
+@export var high_damage_tresh = 0.4
+
 @export var player_index: int = 0
 
-var max_action_points: int = 6
+@export var max_action_points: int = 6
 var action_points:int = max_action_points
 var can_play: bool = false
 
@@ -52,3 +56,26 @@ func consume_action_points(value: int)->void:
 func reset_action_points()->void:
 	action_points = max_action_points
 	player_ui_manager.update_current_ap(max_action_points)
+
+func on_hit(damage: int)->void:
+	await super.on_hit(damage)
+	var player_ui_manager = (ui_manager as PlayerUiManager)
+	player_ui_manager.hide_damage_prediction()
+
+# #-------------------------------------------------------------------------------------
+# ## Player UI
+
+func preview_damage_received(damage: float)->void:
+	var player_ui_manager = (ui_manager as PlayerUiManager)
+
+	if damage == 0:
+		return
+
+	if damage < health * light_damage_tresh:
+		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.LIGHT)
+	if damage >= health * light_damage_tresh && damage < health * medium_damage_tresh:
+		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.MEDIUM)
+	if damage >= health * medium_damage_tresh && damage < health * high_damage_tresh:
+		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.HIGH)
+	if damage >= health * high_damage_tresh:
+		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.VERY_HIGH)

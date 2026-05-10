@@ -8,14 +8,15 @@ class_name MultiplayerCursorNavigator
 # var player_action : Array[Character.ACTION_TYPE] = [Character.ACTION_TYPE.NONE];
 
 @export var enemies_number = 4
-@export var anchor_grid_start: Vector2 = Vector2(600.0, 300.0)
-@export var anchor_grid_end: Vector2 = Vector2(1000.0, 400.0)
+@export var anchor_grid_start: Vector2 = Vector2(600.0, 250.0)
+@export var anchor_grid_end: Vector2 = Vector2(1000.0, 350.0)
 
-var current_cursor_rows = 2
-var current_cursor_cols = 3
+var current_cursor_rows: int = 2
+var current_cursor_cols: int = 3
 
 var player_index : Array[int] = [0];
 var player_action: Array[String]= [""]
+var deactivated_anchors: Array[int] = []
 
 const CURSOR_SPACING = 40
 const CURSOR_BASE_OFFSET = -20
@@ -28,7 +29,7 @@ func _ready():
 	for i in range(player_index.size()):
 		update_cursor_position(i)
 # 	combat_manager.end_of_turn.connect(hide_all_player_navigation)
-	
+
 
 func trigger_player_navigation(player: int, action_key: String) -> void:
 	if(!self.is_visible()):
@@ -36,6 +37,7 @@ func trigger_player_navigation(player: int, action_key: String) -> void:
 
 	player_cursor[player].show()
 	player_action[player] = action_key
+	player_index[player] = _first_active_anchor()
 	update_cursor_position(player)
 
 func hide_player_navigation(player: int) -> void:
@@ -57,42 +59,56 @@ func hide_all_player_navigation() -> void:
 	for i in range(player_index.size()):
 		hide_player_navigation(i)
 
+func _is_active(idx: int) -> bool:
+	return idx < enemies_number and not deactivated_anchors.has(idx)
+
+func _first_active_anchor() -> int:
+	for i in range(enemies_number):
+		if _is_active(i):
+			return i
+	return 0
+
+func _all_deactivated() -> bool:
+	return deactivated_anchors.size() >= enemies_number
+
+func _navigate(current: int, delta_row: int, delta_col: int) -> int:
+	var row = current / current_cursor_cols
+	var col = current % current_cursor_cols
+	for attempt in range(enemies_number):
+		col = (col + delta_col + current_cursor_cols) % current_cursor_cols
+		row = (row + delta_row + current_cursor_rows) % current_cursor_rows
+		var candidate = row * current_cursor_cols + col
+		if _is_active(candidate):
+			return candidate
+	return current
+
 func _unhandled_input(event):
+	if _all_deactivated():
+		return
 	for i in range(player_index.size()):
 		if event.is_action_pressed("P%d_DOWN" % (i + 1)):
-			var row = player_index[i] / current_cursor_cols
-			var col = player_index[i] % current_cursor_cols
-			row = (row + 1) % current_cursor_rows
-			player_index[i] = min(row * current_cursor_cols + col, enemy_anchor.size() - 1)
+			player_index[i] = _navigate(player_index[i], 1, 0)
 			update_cursor_position(i)
 
 		if event.is_action_pressed("P%d_UP" % (i + 1)):
-			var row = player_index[i] / current_cursor_cols
-			var col = player_index[i] % current_cursor_cols
-			row = (row - 1 + current_cursor_rows) % current_cursor_rows
-			player_index[i] = min(row * current_cursor_cols + col, enemy_anchor.size() - 1)
+			player_index[i] = _navigate(player_index[i], -1, 0)
 			update_cursor_position(i)
 
 		if event.is_action_pressed("P%d_LEFT" % (i + 1)):
-			var row = player_index[i] / current_cursor_cols
-			var col = player_index[i] % current_cursor_cols
-			col = (col - 1 + current_cursor_cols) % current_cursor_cols
-			player_index[i] = min(row * current_cursor_cols + col, enemy_anchor.size() - 1)
+			player_index[i] = _navigate(player_index[i], 0, -1)
 			update_cursor_position(i)
 
 		if event.is_action_pressed("P%d_RIGHT" % (i + 1)):
-			var row = player_index[i] / current_cursor_cols
-			var col = player_index[i] % current_cursor_cols
-			col = (col + 1) % current_cursor_cols
-			player_index[i] = min(row * current_cursor_cols + col, enemy_anchor.size() - 1)
+			player_index[i] = _navigate(player_index[i], 0, 1)
 			update_cursor_position(i)
 
 		if event.is_action_pressed("P%d_ACCEPT" % (i + 1)):
-			var enemy_index = player_index[i]
 			if player_action[i] != "":
-				on_player_accept(i, enemy_index)
+				on_player_accept(i, player_index[i])
 
 func update_cursor_position(player):
+	if _all_deactivated():
+		return
 	var num_players = player_index.size()
 	var center_offset = (num_players - 1) / 2.0
 	var offset_x = CURSOR_BASE_OFFSET + CURSOR_SPACING * (player - center_offset)
@@ -146,7 +162,20 @@ func on_player_accept(player: int, enemy: int) -> void:
 		enemy,
 		CombatManager.TargetType.ENEMY,
 		player_action[player]
-	) 
-	# combat_manager.process_player_action(player, target_index, target_type)
+	)
 	hide_player_navigation(player)
-# 	player_action[player] = Character.ACTION_TYPE.NONE
+
+func deactivate_selection_at(index: int):
+	if not _is_active(index):
+		return
+
+	enemy_anchor[index].hide()
+	deactivated_anchors.append(index)
+
+	if _all_deactivated():
+		return
+
+	for i in range(player_index.size()):
+		if player_index[i] == index:
+			player_index[i] = _navigate(index, 0, 1)
+		update_cursor_position(i)

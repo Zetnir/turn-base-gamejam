@@ -9,6 +9,7 @@ var percent_debuff_attack = 15
 var percent_debuff_defense = 15
 
 var next_action_key = ""
+var next_target: Character
 
 func _ready() -> void:
 	if animated_sprite:
@@ -18,8 +19,7 @@ func _ready() -> void:
 # ## Enemy Actions and AI
 
 func process_action(players: Array[Player])-> void:
-	var target = choose_target(players)
-	enemy_action.apply_action(next_action_key, target)
+	enemy_action.apply_action(next_action_key, next_target)
 	ui_manager.hide_action_prediction()
 	
 ## Choose Action
@@ -49,6 +49,15 @@ func display_preview_action_icon(action_key:String)->void:
 	var enemy_ui_manager = ui_manager as EnemyUiManager
 	var action_type = enemy_action.enemy_action_map.get(action_key).action_type
 	enemy_ui_manager.show_action_type_prediction(action_type)
+
+## Return the damage dealt to the target if the enemy is doing damage to this target
+func damage_done_to_target(target: Character)->float:
+	if target == next_target:
+		var enemy_action = enemy_action.enemy_action_map.get(next_action_key)
+		if enemy_action.action_type == Action.ActionType.ATTACK:
+			return enemy_action.damage * (1 - target.defense_percent / 100)
+
+	return 0.0
 
 
 
@@ -81,12 +90,11 @@ func display_preview_action_icon(action_key:String)->void:
 # 	return 0.0
 
 ## Choose Target
-func choose_target(players: Array[Player])->Player:
-
+func choose_target(players: Array[Player])->void:
 	var target: Player
 	var roll_index = randi_range(0,players.size() - 1)
 	target = players[roll_index]
-	return target
+	next_target = target
 
 # #-------------------------------------------------------------------------------------
 # ## Enemy Animations

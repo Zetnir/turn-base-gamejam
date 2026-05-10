@@ -1,6 +1,8 @@
 extends Node
 class_name CombatManager
 
+@export var cursor_navigator: MultiplayerCursorNavigator
+
 @export var enemies: Array[Enemy]
 @export var players: Array[Player]
 
@@ -16,10 +18,8 @@ var turn_index = 0
 
 @export var turn_time_window = 10
 @export var enemy_turn_window = 0.5
-
 @export var test_label: Label
 
-# @export var selectionPanel: EnemySelectionPanel
 
 # var turnIndex = 0
 # var isPlayersTurn = false
@@ -37,6 +37,8 @@ func _process(_delta):
 	elif is_enemies_turn && !is_processing_turn:
 		handle_enemies_turn()
 
+	check_enemy_death()
+
 
 # #-------------------------------------------------------------------------------------
 # # Helpers
@@ -52,8 +54,9 @@ func handle_enemies_turn()->void:
 	print("process enemy turn")
 
 	for enemy in enemies:
-		enemy.process_action(players)
-		await get_tree().create_timer(enemy_turn_window).timeout
+		if enemy:
+			enemy.process_action(players)
+			await get_tree().create_timer(enemy_turn_window).timeout
 
 	await get_tree().create_timer(2).timeout
 	is_enemies_turn = false
@@ -62,9 +65,22 @@ func handle_enemies_turn()->void:
 
 func enemies_preview_action()->void:
 	for enemy in enemies:
-		enemy.choose_action()
+		if enemy :
+			enemy.choose_action()
+			enemy.choose_target(players)
 	await get_tree().create_timer(enemy_turn_window).timeout
 
+func check_enemy_death()->void:
+	for enemy_index in enemies.size():
+		var enemy = enemies.get(enemy_index)
+		if enemy && enemy.health <= 0:
+			await get_tree().create_timer(1.5).timeout
+			if enemy:
+				enemy.death_anim()
+				enemy.queue_free()
+				# enemies.remove_at(enemy_index)
+				cursor_navigator.deactivate_selection_at(enemy_index)
+			break
 
 # #-------------------------------------------------------------------------------------
 # ## Players 
@@ -73,6 +89,7 @@ func handle_players_turn()->void:
 	is_processing_turn = true
 
 	enemies_preview_action()
+	preview_damage_received()
 
 	for player in players:
 		player.can_play = true
@@ -90,8 +107,20 @@ func handle_players_turn()->void:
 	for player in players:
 		player.can_play = false
 
+	cursor_navigator.hide_all_player_navigation()
+
 	## TODO : Remove after tests
 	test_label.text = "Enemies turn"
+
+func preview_damage_received()->void:
+	for player in players:
+		var total_damage = 0
+		for enemy in enemies:
+			if enemy:
+				total_damage += enemy.damage_done_to_target(player)
+		player.preview_damage_received(total_damage)
+		
+
 
 func process_player_action(
 	player_index: int,
