@@ -35,6 +35,18 @@ region = Rect2(500, 0, 100, 100)
 atlas = ExtResource("1_v7qic")
 region = Rect2(600, 0, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3415"]
+atlas = ExtResource("3_asq0o")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ueij"]
+atlas = ExtResource("3_asq0o")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5pkk"]
+atlas = ExtResource("3_asq0o")
+region = Rect2(200, 0, 100, 100)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qeewm"]
 atlas = ExtResource("2_op1wp")
 region = Rect2(0, 0, 100, 100)
@@ -51,17 +63,9 @@ region = Rect2(200, 0, 100, 100)
 atlas = ExtResource("2_op1wp")
 region = Rect2(300, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5pkk"]
-atlas = ExtResource("3_asq0o")
-region = Rect2(200, 0, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_toq76"]
 atlas = ExtResource("4_vkhas")
 region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3415"]
-atlas = ExtResource("3_asq0o")
-region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ypuv8"]
 atlas = ExtResource("4_vkhas")
@@ -127,10 +131,6 @@ region = Rect2(900, 0, 100, 100)
 atlas = ExtResource("6_jfk2w")
 region = Rect2(1000, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ueij"]
-atlas = ExtResource("3_asq0o")
-region = Rect2(100, 0, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl70s"]
 atlas = ExtResource("4_vkhas")
 region = Rect2(200, 0, 100, 100)
@@ -177,6 +177,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d3415")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ueij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5pkk")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qeewm")
 }, {
 "duration": 1.0,
@@ -190,7 +199,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 8.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,

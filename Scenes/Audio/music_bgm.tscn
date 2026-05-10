@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4bwmld0twcnt"]
 
-[ext_resource type="AudioStream" uid="uid://dm2vyswxo2as" path="res://Assets/Sounds/BGM/Legends Of EmberWick's Caves.mp3" id="1_v3kwu"]
+[ext_resource type="AudioStream" uid="uid://d26qg3ua5ncr8" path="res://Assets/Sounds/BGM/EmberWick Level 1 V2.mp3" id="1_v3kwu"]
 
 [node name="MusicBGM" type="AudioStreamPlayer2D" unique_id=179748299]
 stream = ExtResource("1_v3kwu")
