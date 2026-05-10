@@ -5,12 +5,15 @@
 [ext_resource type="Script" uid="uid://dgsdiyt6dytpk" path="res://Scripts/Characters/enemy.gd" id="1_kjg46"]
 [ext_resource type="Script" uid="uid://cstjwk5p4jcjq" path="res://Scripts/EnemyUiManager.gd" id="2_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://bosjvbu10cbia" path="res://Assets/Characters/Orc/Orc/Orc-Death.png" id="2_kjg46"]
-[ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="2_u7jc0"]
 [ext_resource type="Texture2D" uid="uid://c784xgvyj2vcs" path="res://Assets/Icons/attackIcon.png" id="3_4k6ug"]
 [ext_resource type="Texture2D" uid="uid://cp8gcr637pfy3" path="res://Assets/Characters/Orc/Orc/Orc-Attack02.png" id="3_17cwd"]
 [ext_resource type="Texture2D" uid="uid://bh14sbrl2xm0a" path="res://Assets/Characters/Orc/Orc/Orc-Hurt.png" id="4_hw8um"]
 [ext_resource type="Texture2D" uid="uid://fyktg4g4p0ud" path="res://Assets/Icons/defenseIcon.png" id="4_xb08l"]
+[ext_resource type="Texture2D" uid="uid://dsfqd7k71qjlo" path="res://Assets/Icons/HealthGaugeUnder.png" id="8_23u6q"]
+[ext_resource type="Texture2D" uid="uid://dsjmn82lpsusk" path="res://Assets/Icons/HealthGaugeOver.png" id="9_i7nve"]
+[ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="10_5s7gc"]
 [ext_resource type="Texture2D" uid="uid://dh1dm21by6cln" path="res://Assets/Icons/AttacksDebuff.png" id="11_17cwd"]
+[ext_resource type="Texture2D" uid="uid://bh086qfrw5sv3" path="res://Assets/Icons/Shield.png" id="11_i7nve"]
 [ext_resource type="Texture2D" uid="uid://dvwfusd5bsvn6" path="res://Assets/Icons/DefensesDebuff.png" id="12_hw8um"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5s7gc"]
@@ -223,14 +226,6 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ccht0"]
-atlas = ExtResource("2_u7jc0")
-region = Rect2(295.034, 70.026, 34.811, 5.212)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7jc0"]
-atlas = ExtResource("2_u7jc0")
-region = Rect2(55, 70, 34.581, 5.263)
-
 [node name="Enemy" type="Node2D" unique_id=1065316994]
 script = ExtResource("1_kjg46")
 
@@ -240,7 +235,7 @@ sprite_frames = SubResource("SpriteFrames_5s7gc")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "atk_debuff_icon", "def_debuff_icon", "health_bar")]
+[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "atk_debuff_icon", "def_debuff_icon")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -250,19 +245,59 @@ attack_icon = NodePath("AttackIcon")
 defense_icon = NodePath("DefenseIcon")
 atk_debuff_icon = NodePath("AtkDebuffIcon")
 def_debuff_icon = NodePath("DefDebuffIcon")
-health_bar = NodePath("healthBar")
 
-[node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1253625678]
+[node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1038950372]
 clip_contents = true
 layout_mode = 0
-offset_left = -18.000002
-offset_top = 19.000008
-offset_right = 15.999998
-offset_bottom = 24.000008
-scale = Vector2(1.045, 0.946)
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = 36.000008
+scale = Vector2(1.445, 1.445)
+pivot_offset = Vector2(8, 8)
+localize_numeral_system = false
 value = 100.0
-texture_under = SubResource("AtlasTexture_ccht0")
-texture_progress = SubResource("AtlasTexture_u7jc0")
+texture_under = ExtResource("8_23u6q")
+texture_progress = ExtResource("9_i7nve")
+
+[node name="healthPointCurrent" type="Label" parent="EnemyUiManager/healthBar" unique_id=1713354320]
+layout_mode = 0
+offset_left = 0.596
+offset_top = -0.151
+offset_right = 14.596
+offset_bottom = 15.849
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("10_5s7gc")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shieldIcon" type="TextureRect" parent="EnemyUiManager" unique_id=1536894619]
+modulate = Color(1.3131658, 1.3131658, 1.3131658, 1)
+layout_mode = 0
+offset_left = 3.11
+offset_top = 20.0
+offset_right = 19.11
+offset_bottom = 36.0
+scale = Vector2(1.445, 1.445)
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("11_i7nve")
+
+[node name="shieldPointCurrent" type="Label" parent="EnemyUiManager/shieldIcon" unique_id=647712676]
+layout_mode = 0
+offset_left = 0.626
+offset_top = 0.671
+offset_right = 14.62601
+offset_bottom = 16.671
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("10_5s7gc")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AttackIcon" type="TextureRect" parent="EnemyUiManager" unique_id=2147066301]
 modulate = Color(1, 0.42000002, 0.42000002, 1)
