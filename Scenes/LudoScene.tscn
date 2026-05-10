@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="1_r04ol"]
 [ext_resource type="PackedScene" uid="uid://bkg8korhmvj4p" path="res://Scenes/Characters/Enemy.tscn" id="2_ogtya"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="3_mgcvd"]
-[ext_resource type="Script" uid="uid://cbmttbfw34cyi" path="res://Scripts/CombatSystem/combat_manager.gd" id="4_ogtya"]
+[ext_resource type="Script" uid="uid://dplwgbx05o43l" path="res://Scripts/CombatSystem/combat_manager.gd" id="4_ogtya"]
 
-[node name="LudoScene" type="Node2D" unique_id=2014774887]
+[node name="LudoScene2" type="Node2D" unique_id=2014774887]
 
 [node name="Bae257Fe51Ae47Fd8Ed6B41Dae03Ad59" type="Sprite2D" parent="." unique_id=245654282]
 position = Vector2(587, -766.00006)

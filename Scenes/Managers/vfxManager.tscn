@@ -15,7 +15,6 @@ sprite_frames = ExtResource("2_gihax")
 animation = &"hit"
 
 [node name="VfxSprite2D_02" type="AnimatedSprite2D" parent="." unique_id=2123797032]
-visible = false
 modulate = Color(0.85, 0.85, 0.85, 1)
 position = Vector2(0, 14.5)
 sprite_frames = ExtResource("3_y7e6a")
