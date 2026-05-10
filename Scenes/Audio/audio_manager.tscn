@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bw1n6six540wx"]
 
 [ext_resource type="Script" uid="uid://bmtuhn5mtbat2" path="res://Scripts/Audio/audio_manager.gd" id="1_goatc"]
+[ext_resource type="AudioStream" uid="uid://dcmmajhacbcxv" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Victory_sfx.mp3" id="2_7xo4d"]
+[ext_resource type="AudioStream" uid="uid://ch7pnkln5wlfl" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Defeat sfx.mp3" id="3_8l041"]
 
 [node name="AudioManager" type="Node" unique_id=542018590]
 script = ExtResource("1_goatc")
 
-[node name="VictoryMusic" type="AudioStreamPlayer" parent="." unique_id=1152548206]
+[node name="VictorySFX" type="AudioStreamPlayer" parent="." unique_id=1152548206]
+stream = ExtResource("2_7xo4d")
 
-[node name="DefeatMusic" type="AudioStreamPlayer" parent="." unique_id=583156864]
+[node name="DefeatSFX" type="AudioStreamPlayer" parent="." unique_id=583156864]
+stream = ExtResource("3_8l041")
