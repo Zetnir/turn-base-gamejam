@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://be0wjpu07135w"]
+
+[ext_resource type="Texture2D" uid="uid://ihfliwdq1ho0" path="res://Assets/VFX/Debuff.png" id="1_ja4ax"]
+[ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="2_m7032"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gihax"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7e6a"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(64, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hc2i"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(128, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcsx5"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(192, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_787a5"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(256, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i3s5"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w04jl"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(384, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ond2"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(448, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd058"]
+atlas = ExtResource("1_ja4ax")
+region = Rect2(512, 384, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uww3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gihax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7e6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hc2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcsx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_787a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i3s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w04jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ond2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd058")
+}],
+"loop": false,
+"name": &"atkDebuff",
+"speed": 10.0
+}]
+
+[node name="VfxManager" type="Node2D" unique_id=862011693]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1695052025]
+rotation = 1.5707964
+scale = Vector2(1, 1.67)
+sprite_frames = SubResource("SpriteFrames_3uww3")
+animation = &"atkDebuff"
+frame = 8
+frame_progress = 1.0
+
+[node name="Player" parent="." unique_id=1549374177 instance=ExtResource("2_m7032")]
