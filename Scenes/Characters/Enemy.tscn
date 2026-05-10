@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cp8gcr637pfy3" path="res://Assets/Characters/Orc/Orc/Orc-Attack02.png" id="3_17cwd"]
 [ext_resource type="Texture2D" uid="uid://bh14sbrl2xm0a" path="res://Assets/Characters/Orc/Orc/Orc-Hurt.png" id="4_hw8um"]
 [ext_resource type="PackedScene" uid="uid://ckmhgdu0rsxkf" path="res://Scenes/UI/EnemyUi.tscn" id="7_4k6ug"]
+[ext_resource type="Script" uid="uid://byxblghrrx4eh" path="res://Scripts/Actions/EnemyAction.gd" id="8_xb08l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5s7gc"]
 atlas = ExtResource("1_blhco")
@@ -218,11 +219,11 @@ animations = [{
 "speed": 11.0
 }]
 
-[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("animated_sprite", "ui_manager")]
+[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite")]
 script = ExtResource("1_kjg46")
-animated_sprite = NodePath("AnimatedSprite2D")
+enemy_action = NodePath("EnemyAction")
 ui_manager = NodePath("EnemyUiManager")
-health = 50
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)
@@ -231,3 +232,6 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="EnemyUiManager" parent="." unique_id=1895891118 instance=ExtResource("7_4k6ug")]
+
+[node name="EnemyAction" type="Node" parent="." unique_id=534717925]
+script = ExtResource("8_xb08l")

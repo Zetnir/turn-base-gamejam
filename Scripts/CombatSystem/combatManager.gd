@@ -60,6 +60,11 @@ func handle_enemies_turn()->void:
 	is_players_turn = true
 	is_processing_turn = false
 
+func enemies_preview_action()->void:
+	for enemy in enemies:
+		enemy.choose_action()
+	await get_tree().create_timer(enemy_turn_window).timeout
+
 
 # #-------------------------------------------------------------------------------------
 # ## Players 

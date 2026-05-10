@@ -8,6 +8,8 @@ var percent_block = 30
 var percent_debuff_attack = 15
 var percent_debuff_defense = 15
 
+var next_action_key = ""
+
 func _ready() -> void:
 	if animated_sprite:
 		idle_anim()
@@ -16,13 +18,12 @@ func _ready() -> void:
 # ## Enemy Actions and AI
 
 func process_action(players: Array[Player])-> void:
-	var action_key = choose_action()
 	var target = choose_target(players)
-	enemy_action.apply_action(action_key, target)
+	enemy_action.apply_action(next_action_key, target)
 	
 ## Choose Action
 ## TODO : Choose ActionType based 
-func choose_action()->String:
+func choose_action()->void:
 	var total = 0
 	var actions = enemy_action.enemy_action_map
 	for key in actions:
@@ -39,7 +40,7 @@ func choose_action()->String:
 			break
 
 	# var enemy_action = enemy_action.
-	return choosen_key
+	next_action_key = choosen_key
 
 ## TODO Do the scoring for AI Attack choose
 # func score_attack()->float:
