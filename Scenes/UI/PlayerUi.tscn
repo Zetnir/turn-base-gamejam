@@ -47,10 +47,10 @@ texture_progress = ExtResource("3_5v8ut")
 
 [node name="healthPointCurrent" type="Label" parent="healthBar" unique_id=862129332]
 layout_mode = 0
-offset_left = 0.596
-offset_top = -0.151
-offset_right = 14.596
-offset_bottom = 15.849
+offset_left = -5.8408294
+offset_top = -1.6885786
+offset_right = 57.438324
+offset_bottom = 22.495178
 scale = Vector2(0.29, 0.29)
 pivot_offset = Vector2(7, 8)
 theme_override_fonts/font = ExtResource("4_ewrwj")
@@ -76,10 +76,10 @@ tint_progress = Color(0.5821114, 0.9527243, 0.9033092, 1)
 
 [node name="actionPointCurrent" type="Label" parent="actionGauge" unique_id=867434142]
 layout_mode = 0
-offset_left = 0.726
-offset_top = -0.231
-offset_right = 14.726003
-offset_bottom = 15.769
+offset_left = -9.428
+offset_top = -1.231
+offset_right = 78.09243
+offset_bottom = 21.88757
 scale = Vector2(0.29, 0.29)
 pivot_offset = Vector2(7, 8)
 theme_override_fonts/font = ExtResource("4_ewrwj")
@@ -101,10 +101,10 @@ texture = ExtResource("7_8f2oe")
 
 [node name="shieldPointCurrent" type="Label" parent="shieldIcon" unique_id=1950860980]
 layout_mode = 0
-offset_left = 0.626
-offset_top = 0.671
-offset_right = 14.62601
-offset_bottom = 16.671
+offset_left = -4.568181
+offset_top = -0.21428372
+offset_right = 47.70939
+offset_bottom = 18.272373
 scale = Vector2(0.29, 0.29)
 pivot_offset = Vector2(7, 8)
 theme_override_fonts/font = ExtResource("4_ewrwj")

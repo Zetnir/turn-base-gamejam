@@ -15,9 +15,11 @@ var shield_timer = 0
 var power_percent = base_power_percent
 var defense_percent = base_defense_percent
 var shield = 0
+var is_dead = false
 
-func _ready() -> void:
-	ui_manager.update_current_hp(max_health)
+func _ready():
+	health = max_health
+	ui_manager.update_current_hp(health)
 
 func on_hit(damage: int) -> void:
 	if shield > 0:
@@ -52,7 +54,8 @@ func on_protection(block: int)->void:
 	shield += block
 	shield_timer = 1
 	ui_manager.update_shield_point(shield)
-	vfx_manager.play_guard(self.position)
+	if vfx_manager:
+		vfx_manager.play_guard(self.position)
 	
 func reduce_timers()->void:
 	## Debuff Attack

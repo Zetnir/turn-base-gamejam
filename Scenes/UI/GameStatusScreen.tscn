@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dto6oyyn5kata"]
+
+[ext_resource type="Script" uid="uid://chsvy77o8lqy8" path="res://Scripts/UI/game_status_manager.gd" id="1_k1b2a"]
+[ext_resource type="FontFile" uid="uid://bvb1gunglbc4f" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_6fd3a"]
+
+[node name="GameStatusScreens" type="Control" unique_id=14866483 node_paths=PackedStringArray("victory_screen", "death_screen")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k1b2a")
+victory_screen = NodePath("VictoryScreen")
+death_screen = NodePath("DeathScreen")
+
+[node name="VictoryScreen" type="ColorRect" parent="." unique_id=1889253649]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 1199.0
+offset_bottom = 721.0
+color = Color(0.56100005, 0.66, 0, 0.44313726)
+
+[node name="Label" type="Label" parent="VictoryScreen" unique_id=494637568]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -11.5
+offset_right = 149.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6fd3a")
+theme_override_font_sizes/font_size = 24
+text = "Yaaaayy! Victory!"
+
+[node name="DeathScreen" type="ColorRect" parent="." unique_id=355685495]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = -50.0
+offset_top = -68.0
+offset_right = 1199.0
+offset_bottom = 721.0
+color = Color(0.46, 0, 0, 0.44313726)
+
+[node name="Label" type="Label" parent="DeathScreen" unique_id=608117576]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -11.5
+offset_right = 149.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6fd3a")
+theme_override_font_sizes/font_size = 24
+text = "Prout... you're dead!"

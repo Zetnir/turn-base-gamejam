@@ -2,6 +2,7 @@ extends Node
 class_name CombatManager
 
 @export var cursor_navigator: MultiplayerCursorNavigator
+@export var game_status_manager: GameStatusManager
 
 @export var enemies: Array[Enemy]
 @export var players: Array[Player]
@@ -13,6 +14,8 @@ enum TargetType {
 var is_processing_turn = false
 var is_players_turn = false
 var is_enemies_turn = false
+var is_combat_won = false
+var is_combat_lost = false
 
 var turn_index = 0
 
@@ -37,8 +40,10 @@ func _process(_delta):
 	elif is_enemies_turn && !is_processing_turn:
 		handle_enemies_turn()
 
-	check_enemy_death()
-
+	if !is_combat_won && !is_combat_lost:
+		check_enemy_death()
+		check_player_death()
+		check_combat_status()
 
 # #-------------------------------------------------------------------------------------
 # # Helpers
@@ -56,6 +61,8 @@ func handle_enemies_turn()->void:
 	for enemy in enemies:
 		if enemy:
 			enemy.process_action(players)
+			if is_combat_lost:
+				pass
 			await get_tree().create_timer(enemy_turn_window).timeout
 
 	await get_tree().create_timer(2).timeout
@@ -74,12 +81,12 @@ func check_enemy_death()->void:
 	for enemy_index in enemies.size():
 		var enemy = enemies.get(enemy_index)
 		if enemy && enemy.health <= 0:
-			await get_tree().create_timer(1.5).timeout
-			if enemy:
+			cursor_navigator.deactivate_selection_at(enemy_index)
+			await get_tree().create_timer(.7).timeout
+			if enemy && !enemy.is_dead:
+				enemy.is_dead = true
 				enemy.death_anim()
 				enemy.queue_free()
-				# enemies.remove_at(enemy_index)
-				cursor_navigator.deactivate_selection_at(enemy_index)
 			break
 
 # #-------------------------------------------------------------------------------------
@@ -92,8 +99,9 @@ func handle_players_turn()->void:
 	preview_damage_received()
 
 	for player in players:
-		player.can_play = true
-		player.reset_action_points()
+		if player :
+			player.can_play = true
+			player.reset_action_points()
 
 	## TODO : Remove after tests
 	test_label.text = "Players turn"
@@ -114,12 +122,36 @@ func handle_players_turn()->void:
 
 func preview_damage_received()->void:
 	for player in players:
-		var total_damage = 0
-		for enemy in enemies:
-			if enemy:
-				total_damage += enemy.damage_done_to_target(player)
-		player.preview_damage_received(total_damage)
+		if player : 
+			var total_damage = 0
+			for enemy in enemies:
+				if enemy:
+					total_damage += enemy.damage_done_to_target(player)
+			player.preview_damage_received(total_damage)
 		
+func check_player_death()->void:
+	for player_index in players.size():
+		var player = players.get(player_index)
+		if player && player.health <= 0:
+			await get_tree().create_timer(1.5).timeout
+			if player && !player.is_dead:
+				player.is_dead = true
+				player.death_anim()
+				player.queue_free()
+			break
+
+func check_combat_status()->void:
+	print(enemies.size())
+	if  enemies.filter(func(x): return x != null).size() <= 0:
+		print("all enemies dead")
+		is_combat_won = true
+		game_status_manager.toggle_victory_screen()
+		for player in players:
+			player.can_play = false
+
+	if  players.filter(func(x): return x != null).size() <= 0:
+		is_combat_lost = true
+		game_status_manager.toggle_death_screen()
 
 
 func process_player_action(

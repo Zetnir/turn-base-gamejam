@@ -43,10 +43,10 @@ texture_progress = ExtResource("3_v7rge")
 
 [node name="healthPointCurrent" type="Label" parent="healthBar" unique_id=1617958049]
 layout_mode = 0
-offset_left = 0.596
-offset_top = -0.151
-offset_right = 14.596
-offset_bottom = 15.849
+offset_left = -5.148787
+offset_top = -1.6885786
+offset_right = 49.737255
+offset_bottom = 24.561268
 scale = Vector2(0.29, 0.29)
 pivot_offset = Vector2(7, 8)
 theme_override_fonts/font = ExtResource("4_qyoj2")
@@ -68,10 +68,10 @@ texture = ExtResource("5_yn4h3")
 
 [node name="shieldPointCurrent" type="Label" parent="shieldIcon" unique_id=2103486570]
 layout_mode = 0
-offset_left = 0.626
-offset_top = 0.671
-offset_right = 14.62601
-offset_bottom = 16.671
+offset_left = -5.9169536
+offset_top = -1.68858
+offset_right = 54.6099
+offset_bottom = 23.43872
 scale = Vector2(0.29, 0.29)
 pivot_offset = Vector2(7, 8)
 theme_override_fonts/font = ExtResource("4_qyoj2")

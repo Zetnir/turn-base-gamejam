@@ -11,7 +11,8 @@ var percent_debuff_defense = 15
 var next_action_key = ""
 var next_target: Character
 
-func _ready() -> void:
+func _ready():
+	super._ready()
 	if animated_sprite:
 		idle_anim()
 
