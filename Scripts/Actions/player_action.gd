@@ -2,7 +2,7 @@ extends Action
 class_name PlayerAction
 
 var player: Player
-
+@export var audio_manager: Node
 @export var player_action_map: Dictionary[String, Variant] = {
 	"basic_attack": { "damage": 10, "action_type":ActionType.ATTACK, "action_point": 2, "anim":"basicAttack", "description": "Honestly you can do better..."},
 	"heavy_attack": { "damage": 30, "action_type":ActionType.ATTACK, "action_point": 5, "anim":"heavyAttack", "description": "Damn bro, you're not kidding"},
@@ -23,6 +23,7 @@ func apply_action(action_key: String, target: Character)->void:
 				print("player:", player.name)
 				player.consume_action_points(action.action_point)
 				player.play_action_anim(action.anim)
+				player.audio_manager.process_action_sound(action_key,player.position)
 				await player.get_tree().create_timer(.5).timeout
 				target.on_hit(action.damage)
 			ActionType.ATK_DEBUFF:

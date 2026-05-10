@@ -2,7 +2,7 @@ extends Action
 class_name EnemyAction
 
 var enemy: Enemy
-
+@export var audio_manager: Node
 @export var enemy_action_map: Dictionary[String, Variant] = {
 	"basic_attack": { "damage": 10, "weight": 40, "action_type":ActionType.ATTACK, "anim":"basicAttack"},
 	"guard": { "block": 10, "weight": 30,"action_type":ActionType.PROTECTION, "anim":"guard"},
@@ -20,6 +20,8 @@ func apply_action(action_key: String, target: Character)->void:
 	print(action)
 	print(enemy)
 	enemy.play_action_anim(action.anim)
+	enemy.audio_manager.process_action_sound(action_key,enemy.position)
+
 	await enemy.get_tree().create_timer(.5).timeout
 	match action.action_type:
 		ActionType.ATTACK:

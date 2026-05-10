@@ -1,14 +1,26 @@
 [gd_scene format=3 uid="uid://bw1n6six540wx"]
 
 [ext_resource type="Script" uid="uid://bmtuhn5mtbat2" path="res://Scripts/Audio/audio_manager.gd" id="1_goatc"]
-[ext_resource type="AudioStream" uid="uid://dcmmajhacbcxv" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Victory_sfx.mp3" id="2_7xo4d"]
-[ext_resource type="AudioStream" uid="uid://ch7pnkln5wlfl" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Defeat sfx.mp3" id="3_8l041"]
+[ext_resource type="AudioStream" uid="uid://dcmmajhacbcxv" path="res://Assets/Sounds/Music/Legends_Of_Emberwick_Victory_music.mp3" id="2_lu82t"]
+[ext_resource type="AudioStream" uid="uid://ch7pnkln5wlfl" path="res://Assets/Sounds/Music/Legends_Of_Emberwick_Defeat_music.mp3" id="3_ft5o5"]
+[ext_resource type="AudioStream" uid="uid://dslmiihft65qj" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Heavy_attack_sfx.mp3" id="4_2wtmb"]
+[ext_resource type="AudioStream" uid="uid://cf2sgvyyu76cq" path="res://Assets/Sounds/SFX/Legends_Of_Emberwick_Basic_attack_sfx.mp3" id="5_7nmqq"]
 
-[node name="AudioManager" type="Node" unique_id=542018590]
+[node name="AudioManager" type="Node" unique_id=542018590 node_paths=PackedStringArray("victory_music", "defeat_music", "heavy_attack_sfx", "basic_attack_sfx")]
 script = ExtResource("1_goatc")
+victory_music = NodePath("VictoryMusic")
+defeat_music = NodePath("DefeatMusic")
+heavy_attack_sfx = NodePath("HeavyAttackSFX")
+basic_attack_sfx = NodePath("BasicAttackSFX")
 
-[node name="VictorySFX" type="AudioStreamPlayer" parent="." unique_id=1152548206]
-stream = ExtResource("2_7xo4d")
+[node name="VictoryMusic" type="AudioStreamPlayer2D" parent="." unique_id=656168255]
+stream = ExtResource("2_lu82t")
 
-[node name="DefeatSFX" type="AudioStreamPlayer" parent="." unique_id=583156864]
-stream = ExtResource("3_8l041")
+[node name="DefeatMusic" type="AudioStreamPlayer2D" parent="." unique_id=2019101585]
+stream = ExtResource("3_ft5o5")
+
+[node name="HeavyAttackSFX" type="AudioStreamPlayer2D" parent="." unique_id=1134422205]
+stream = ExtResource("4_2wtmb")
+
+[node name="BasicAttackSFX" type="AudioStreamPlayer2D" parent="." unique_id=207623860]
+stream = ExtResource("5_7nmqq")

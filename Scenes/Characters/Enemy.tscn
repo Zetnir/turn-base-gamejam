@@ -2,18 +2,22 @@
 
 [ext_resource type="Script" uid="uid://7itumn3xraks" path="res://Scripts/Characters/enemy.gd" id="1_kjg46"]
 [ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_gdwie"]
+[ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="2_u7jc0"]
 [ext_resource type="SpriteFrames" uid="uid://cccjffgb7ejjl" path="res://Animation/EnemyAnim.tres" id="3_ccht0"]
 [ext_resource type="Script" path="res://Scripts/UI/vfx_manager.gd" id="3_u7jc0"]
 [ext_resource type="PackedScene" uid="uid://ckmhgdu0rsxkf" path="res://Scenes/UI/EnemyUi.tscn" id="7_4k6ug"]
 [ext_resource type="Script" uid="uid://cfjkxnn7c1xi4" path="res://Scripts/Actions/enemy_action.gd" id="8_xb08l"]
 
-[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite", "vfx_manager")]
+[node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite", "vfx_manager", "audio_manager")]
 script = ExtResource("1_kjg46")
 enemy_action = NodePath("EnemyAction")
 ui_manager = NodePath("EnemyUiManager")
 max_health = 10.0
 animated_sprite = NodePath("AnimatedSprite2D")
 vfx_manager = NodePath("VfxManager")
+audio_manager = NodePath("AudioManager")
+
+[node name="AudioManager" parent="." unique_id=542018590 instance=ExtResource("2_u7jc0")]
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_gdwie")]
 z_index = 2
@@ -29,5 +33,6 @@ frame_progress = 1.0
 
 [node name="EnemyUiManager" parent="." unique_id=1895891118 instance=ExtResource("7_4k6ug")]
 
-[node name="EnemyAction" type="Node" parent="." unique_id=534717925]
+[node name="EnemyAction" type="Node" parent="." unique_id=534717925 node_paths=PackedStringArray("audio_manager")]
 script = ExtResource("8_xb08l")
+audio_manager = NodePath("../AudioManager")
