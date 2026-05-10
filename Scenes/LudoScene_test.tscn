@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnt0jfejachcy"]
 
-[ext_resource type="Texture2D" uid="uid://c33ps2bik51j3" path="res://Assets/Icons/BackgroundBigger.png" id="1_wkwmq"]
+[ext_resource type="Texture2D" uid="uid://df73rx3d7qers" path="res://Assets/BG/Background (2).png" id="1_2k6x8"]
 [ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="2_spalx"]
 [ext_resource type="PackedScene" uid="uid://d3o0edc5vl7q1" path="res://Scenes/Characters/Player3.tscn" id="3_2k6x8"]
 [ext_resource type="PackedScene" uid="uid://bkg8korhmvj4p" path="res://Scenes/Characters/Enemy.tscn" id="3_qgkvp"]
@@ -18,7 +18,7 @@ rotation_smoothing_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=245654282]
 scale = Vector2(4.775, 4.775)
-texture = ExtResource("1_wkwmq")
+texture = ExtResource("1_2k6x8")
 
 [node name="Player1" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("2_spalx")]
 position = Vector2(-220, 160)

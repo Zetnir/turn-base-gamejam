@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bw1n6six540wx"]
+
+[ext_resource type="Script" uid="uid://bmtuhn5mtbat2" path="res://Scripts/Audio/audio_manager.gd" id="1_goatc"]
+
+[node name="AudioManager" type="Node" unique_id=542018590]
+script = ExtResource("1_goatc")
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." unique_id=1152548206]
+
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." unique_id=583156864]

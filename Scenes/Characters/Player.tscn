@@ -18,8 +18,10 @@ animated_sprite = NodePath("AnimatedSprite2D")
 modulate = Color(1, 0.69411767, 0.52156866, 1)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_7pt4t")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="ActionPlayer" type="Node" parent="." unique_id=102161743]
 script = ExtResource("16_vtvfp")

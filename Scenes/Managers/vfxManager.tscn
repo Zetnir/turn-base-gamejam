@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://be0wjpu07135w"]
 
-[ext_resource type="Script" uid="uid://b7imeoo7aoebj" path="res://Scripts/UI/vfx_manager.gd" id="1_m7032"]
+[ext_resource type="Script" uid="uid://b7imeoo7aoebj" path="res://Scripts/VFX/vfx_manager.gd" id="1_m7032"]
 [ext_resource type="SpriteFrames" uid="uid://dgrvpbf050bbh" path="res://Animation/vfx_anim01.tres" id="2_gihax"]
 [ext_resource type="SpriteFrames" uid="uid://xijm4rsgpe74" path="res://Animation/vfx_anim02.tres" id="3_y7e6a"]
 
