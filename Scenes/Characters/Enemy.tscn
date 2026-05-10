@@ -226,14 +226,6 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ccht0"]
-atlas = ExtResource("2_u7jc0")
-region = Rect2(295.034, 70.026, 34.811, 5.212)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7jc0"]
-atlas = ExtResource("2_u7jc0")
-region = Rect2(55, 70, 34.581, 5.263)
-
 [node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("animated_sprite", "ui_manager")]
 script = ExtResource("1_kjg46")
 animated_sprite = NodePath("AnimatedSprite2D")

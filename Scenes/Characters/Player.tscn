@@ -307,33 +307,18 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jgh3u"]
-atlas = ExtResource("7_w38he")
-region = Rect2(295.034, 70.026, 34.811, 5.212)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73iip"]
-atlas = ExtResource("7_w38he")
-region = Rect2(55, 70, 34.581, 5.263)
-
 [node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "animated_sprite", "ui_manager")]
 script = ExtResource("1_4opfx")
 player_action = NodePath("ActionPlayer")
 animated_sprite = NodePath("AnimatedSprite2D")
 ui_manager = NodePath("PlayerUiManager")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qeewm")
-animation = &"basicAttack"
-autoplay = "idle"
-metadata/_edit_horizontal_guides_ = [31.0]
-
 [node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon", "shield_icon", "action_point_current", "action_gauge", "health_bar")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("8_4opfx")
+script = ExtResource("7_meglp")
 light_damage_icon = NodePath("LightDamageIcon")
 medium_damage_icon = NodePath("MediumDamageIcon")
 high_damage_icon = NodePath("HighDamageIcon")
