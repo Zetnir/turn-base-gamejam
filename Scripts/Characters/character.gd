@@ -7,6 +7,8 @@ class_name Character
 @export var base_defense_percent = 0.0
 @export var animated_sprite: AnimatedSprite2D
 @export var vfx_manager: VfxManager
+@export var audio_manager: Node
+
 
 var health = max_health
 var debuff_attack_timer = 0
@@ -37,16 +39,19 @@ func on_hit(damage: int) -> void:
 		death_anim()
 	else:
 		hurt_anim()
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.02).timeout
+		vfx_manager.play_hit(self.position)
 
 
 func on_debuff_attack(percent_reduc: int)->void:
 	power_percent -= percent_reduc
 	debuff_attack_timer = 1
+	vfx_manager.play_atk_debuff(self.position)
 
 func on_debuff_defense(percent_reduc: int)->void:
 	defense_percent -= percent_reduc
 	debuff_defense_timer = 1
+	vfx_manager.play_def_debuff(self.position)
 
 func on_protection(block: int)->void:
 	shield += block

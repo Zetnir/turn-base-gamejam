@@ -3,18 +3,22 @@
 [ext_resource type="Script" uid="uid://dvqnnvmbvbu1b" path="res://Scripts/Characters/player.gd" id="1_4opfx"]
 [ext_resource type="SpriteFrames" uid="uid://c0w5ijk4lodgs" path="res://Animation/PlayerAnim.tres" id="2_7pt4t"]
 [ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_7qdam"]
+[ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="3_gc10f"]
 [ext_resource type="PackedScene" uid="uid://dkiro5ywp01hu" path="res://Scenes/UI/PlayerUi.tscn" id="9_meglp"]
 [ext_resource type="Script" uid="uid://tj46n7qfplyt" path="res://Scripts/Actions/player_action.gd" id="16_vtvfp"]
 
-[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "ui_manager", "animated_sprite", "vfx_manager")]
+[node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "ui_manager", "animated_sprite", "vfx_manager", "audio_manager")]
 script = ExtResource("1_4opfx")
 player_action = NodePath("ActionPlayer")
 ui_manager = NodePath("PlayerUiManager")
 animated_sprite = NodePath("AnimatedSprite2D")
 vfx_manager = NodePath("VfxManager")
+audio_manager = NodePath("AudioManager")
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_7qdam")]
 z_index = 2
+
+[node name="AudioManager" parent="." unique_id=542018590 instance=ExtResource("3_gc10f")]
 
 [node name="PlayerUiManager" parent="." unique_id=1895891118 instance=ExtResource("9_meglp")]
 

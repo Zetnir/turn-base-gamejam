@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8yafmj3alr8t"]
 
 [ext_resource type="Script" uid="uid://dvqnnvmbvbu1b" path="res://Scripts/Characters/player.gd" id="1_whnpd"]
+[ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="2_2kuwy"]
 [ext_resource type="SpriteFrames" uid="uid://c0w5ijk4lodgs" path="res://Animation/PlayerAnim.tres" id="2_2vl4u"]
 [ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_35ltw"]
 [ext_resource type="Script" uid="uid://tj46n7qfplyt" path="res://Scripts/Actions/player_action.gd" id="8_r4qkg"]
@@ -11,6 +12,8 @@ script = ExtResource("1_whnpd")
 player_action = NodePath("ActionPlayer")
 ui_manager = NodePath("PlayerUiManager")
 animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="AudioManager" parent="." unique_id=542018590 instance=ExtResource("2_2kuwy")]
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_35ltw")]
 
