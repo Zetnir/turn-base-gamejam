@@ -14,6 +14,10 @@ config/name="turnBaseGameJam"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicBgm="*uid://d4bwmld0twcnt"
+
 [input]
 
 P1_ACTION_1={

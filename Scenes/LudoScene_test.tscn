@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkg8korhmvj4p" path="res://Scenes/Characters/Enemy.tscn" id="3_qgkvp"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="4_2k6x8"]
 [ext_resource type="PackedScene" uid="uid://dladjk75vi0sv" path="res://Scenes/Characters/Player4.tscn" id="4_8drfa"]
-[ext_resource type="Script" uid="uid://cbmttbfw34cyi" path="res://Scripts/CombatSystem/combat_manager.gd" id="5_8drfa"]
+[ext_resource type="Script" uid="uid://dplwgbx05o43l" path="res://Scripts/CombatSystem/combat_manager.gd" id="5_8drfa"]
 [ext_resource type="PackedScene" uid="uid://8yafmj3alr8t" path="res://Scenes/Characters/Player2.tscn" id="5_uclf7"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]

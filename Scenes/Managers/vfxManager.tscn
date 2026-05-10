@@ -1,87 +1,23 @@
 [gd_scene format=3 uid="uid://be0wjpu07135w"]
 
-[ext_resource type="Texture2D" uid="uid://ihfliwdq1ho0" path="res://Assets/VFX/Debuff.png" id="1_ja4ax"]
-[ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="2_m7032"]
+[ext_resource type="Script" uid="uid://b7imeoo7aoebj" path="res://Scripts/UI/vfx_manager.gd" id="1_m7032"]
+[ext_resource type="SpriteFrames" uid="uid://dgrvpbf050bbh" path="res://Animation/vfx_anim01.tres" id="2_gihax"]
+[ext_resource type="SpriteFrames" uid="uid://xijm4rsgpe74" path="res://Animation/vfx_anim02.tres" id="3_y7e6a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gihax"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(0, 384, 64, 64)
+[node name="VfxManager" type="Node2D" unique_id=862011693 node_paths=PackedStringArray("vfx_sprite_2d_01", "vfx_sprite_2d_02")]
+script = ExtResource("1_m7032")
+vfx_sprite_2d_01 = NodePath("VfxSprite2D_01")
+vfx_sprite_2d_02 = NodePath("VfxSprite2D_02")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7e6a"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(64, 384, 64, 64)
+[node name="VfxSprite2D_01" type="AnimatedSprite2D" parent="." unique_id=1695052025]
+modulate = Color(0.85, 0.85, 0.85, 1)
+sprite_frames = ExtResource("2_gihax")
+animation = &"hit"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hc2i"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(128, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcsx5"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(192, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_787a5"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(256, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3i3s5"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(320, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w04jl"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(384, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ond2"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(448, 384, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rd058"]
-atlas = ExtResource("1_ja4ax")
-region = Rect2(512, 384, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3uww3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gihax")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y7e6a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1hc2i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jcsx5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_787a5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3i3s5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w04jl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ond2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rd058")
-}],
-"loop": false,
-"name": &"atkDebuff",
-"speed": 10.0
-}]
-
-[node name="VfxManager" type="Node2D" unique_id=862011693]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1695052025]
-rotation = 1.5707964
-scale = Vector2(1, 1.67)
-sprite_frames = SubResource("SpriteFrames_3uww3")
-animation = &"atkDebuff"
-frame = 8
+[node name="VfxSprite2D_02" type="AnimatedSprite2D" parent="." unique_id=2123797032]
+modulate = Color(0.85, 0.85, 0.85, 1)
+position = Vector2(0, 14.5)
+sprite_frames = ExtResource("3_y7e6a")
+animation = &"provocation"
+frame = 10
 frame_progress = 1.0
-
-[node name="Player" parent="." unique_id=1549374177 instance=ExtResource("2_m7032")]
