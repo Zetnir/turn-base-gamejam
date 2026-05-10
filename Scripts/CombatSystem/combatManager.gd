@@ -7,6 +7,16 @@ class_name CombatManager
 enum TargetType {
 	PLAYER, ENEMY
 }
+
+var is_players_turn = false
+var is_enemies_turn = false
+var turn_index = 0
+
+@export var turn_time_window = 10
+@export var enemy_turn_window = 0.5
+
+@export var test_label: Label
+
 # @export var selectionPanel: EnemySelectionPanel
 
 # var turnIndex = 0
@@ -15,6 +25,33 @@ enum TargetType {
 # var timeElapsed = 0.0
 
 # signal end_of_turn()
+
+func _process(_delta):
+	if !is_players_turn && !is_enemies_turn:
+		handle_players_turn()
+	elif !is_players_turn && is_enemies_turn:
+		handle_enemies_turn()
+
+
+# #-------------------------------------------------------------------------------------
+# # Helpers
+
+
+# #-------------------------------------------------------------------------------------
+# ## Enemies
+
+func handle_enemies_turn()->void:
+	turn_index +=1
+
+	for enemy in enemies:
+		enemy.process_action(players)
+		await get_tree().create_timer(enemy_turn_window).timeout
+
+	is_enemies_turn = false
+
+
+# #-------------------------------------------------------------------------------------
+# ## Players 
 
 func process_player_action(
 	player_index: int,
@@ -32,6 +69,23 @@ func process_player_action(
 
 	player.process_action(action_key, target)
 
+func handle_players_turn()->void:
+	is_players_turn = true
+	for player in players:
+		player.can_play = true
+
+	## TODO : Remove after tests
+	test_label.text = "Players turn"
+
+	await get_tree().create_timer(turn_time_window).timeout
+
+	is_enemies_turn = true
+	is_players_turn = false
+	for player in players:
+		player.can_play = false
+
+	## TODO : Remove after tests
+	test_label.text = "Enemies turn"
 
 # func _process(_delta: float) -> void:
 # 	if !isPlayersTurn:

@@ -4,7 +4,7 @@ class_name Character
 
 @export var ui_manager: UiManager
 
-var health = 100
+@export var health = 100
 var shield = 0
 
 
@@ -26,14 +26,5 @@ func on_hit(damage: int) -> void:
 # #-------------------------------------------------------------------------------------
 # ## Animation Handlers
 
-# func handleHurtAnimation() -> void:
-# 	# Placeholder for hurt animation logic
-# 	pass
-
-# func handleAttackAnimation() -> void:
-# 	# Placeholder for attack animation logic
-# 	pass
-
-# func handleDeathAnimation() -> void:
-# 	# Placeholder for death animation logic
-# 	pass
+func hurt_anim()->void:
+	pass

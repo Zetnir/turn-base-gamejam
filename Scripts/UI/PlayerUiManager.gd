@@ -1,4 +1,5 @@
 extends UiManager
+class_name PlayerUiManager
 
 @export var light_damage_icon: TextureRect
 @export var medium_damage_icon: TextureRect
