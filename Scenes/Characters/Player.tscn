@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bx2hcbuuvoftm"]
 
-[ext_resource type="Script" uid="uid://cx6knj5d4m6s6" path="res://Scripts/Characters/Player.gd" id="1_4opfx"]
+[ext_resource type="Script" uid="uid://cvfd7wxkex8r4" path="res://Scripts/Characters/Player.gd" id="1_4opfx"]
 [ext_resource type="Texture2D" uid="uid://cyroh7vc8xng1" path="res://Assets/Characters/Knight/Knight/Knight-Attack01.png" id="1_o5en2"]
 [ext_resource type="Texture2D" uid="uid://bfvf3iujcise0" path="res://Assets/Characters/Knight/Knight/Knight-Block.png" id="2_7pt4t"]
 [ext_resource type="Texture2D" uid="uid://1apunjse0c0v" path="res://Assets/Characters/Knight/Knight/Knight-Idle.png" id="3_7qdam"]
@@ -11,12 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://c3cccxp1vjli7" path="res://Assets/Icons/ActionGaugeUnder.png" id="4_vtvfp"]
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="5_w38he"]
 [ext_resource type="Texture2D" uid="uid://qm1x2hq1b575" path="res://Assets/Icons/ActionGaugeTopG.png" id="5_ypuv8"]
-[ext_resource type="Script" uid="uid://bu6wl0o0ugrcx" path="res://Scripts/PlayerUiManager.gd" id="7_meglp"]
+[ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/UI/PlayerUiManager.gd" id="8_4opfx"]
 [ext_resource type="Texture2D" uid="uid://bh086qfrw5sv3" path="res://Assets/Icons/Shield.png" id="8_toq76"]
-[ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/lightAttack.png" id="9_shd1k"]
 [ext_resource type="Texture2D" uid="uid://b0bkvahadqipn" path="res://Assets/Icons/mediumAttack.png" id="10_5kd0c"]
 [ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="10_aal88"]
-[ext_resource type="Texture2D" uid="uid://dugje7k20wol3" path="res://Assets/Icons/actionGauge.png" id="11_aal88"]
 [ext_resource type="Texture2D" uid="uid://crn7cvdu7ml0x" path="res://Assets/Icons/veryHighAttack.png" id="12_4opfx"]
 [ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/lightAttack.png" id="12_vtvfp"]
 [ext_resource type="Texture2D" uid="uid://dy274tg0k0og4" path="res://Assets/Icons/highAttack.png" id="14_ypuv8"]
@@ -313,20 +311,22 @@ player_action = NodePath("ActionPlayer")
 animated_sprite = NodePath("AnimatedSprite2D")
 ui_manager = NodePath("PlayerUiManager")
 
-[node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon", "shield_icon", "action_point_current", "action_gauge", "health_bar")]
+[node name="PlayerUiManager" type="Control" parent="." unique_id=1873439396 node_paths=PackedStringArray("light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon", "action_point_current", "action_gauge", "health_bar", "health_point_current", "shield_icon", "shield_point_current")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_meglp")
+script = ExtResource("8_4opfx")
 light_damage_icon = NodePath("LightDamageIcon")
 medium_damage_icon = NodePath("MediumDamageIcon")
 high_damage_icon = NodePath("HighDamageIcon")
 very_high_damage_icon = NodePath("VeryHighDamageIcon")
-shield_icon = NodePath("shieldIcon")
 action_point_current = NodePath("actionGauge/actionPointCurrent")
 action_gauge = NodePath("actionGauge")
 health_bar = NodePath("healthBar")
+health_point_current = NodePath("healthBar/healthPointCurrent")
+shield_icon = NodePath("shieldIcon")
+shield_point_current = NodePath("shieldIcon/shieldPointCurrent")
 
 [node name="healthBar" type="TextureProgressBar" parent="PlayerUiManager" unique_id=963768982]
 clip_contents = true

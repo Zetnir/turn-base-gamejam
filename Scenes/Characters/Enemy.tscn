@@ -238,7 +238,7 @@ sprite_frames = SubResource("SpriteFrames_5s7gc")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "atk_debuff_icon", "def_debuff_icon")]
+[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "atk_debuff_icon", "def_debuff_icon", "health_bar", "health_point_current", "shield_icon", "shield_point_current")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -248,6 +248,10 @@ attack_icon = NodePath("AttackIcon")
 defense_icon = NodePath("DefenseIcon")
 atk_debuff_icon = NodePath("AtkDebuffIcon")
 def_debuff_icon = NodePath("DefDebuffIcon")
+health_bar = NodePath("healthBar")
+health_point_current = NodePath("healthBar/healthPointCurrent")
+shield_icon = NodePath("shieldIcon")
+shield_point_current = NodePath("shieldIcon/shieldPointCurrent")
 
 [node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1038950372]
 clip_contents = true

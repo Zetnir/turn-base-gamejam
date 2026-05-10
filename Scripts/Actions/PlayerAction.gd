@@ -12,8 +12,6 @@ var player: Player
 
 }
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_parent()
@@ -47,7 +45,3 @@ func apply_action(action_key: String, target: Character)->void:
 				# target.on_hit(action.percentAggro)
 	else:
 		print("player %d don't have enough mana for action" % [player.player_index])
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

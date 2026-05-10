@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2hcbuuvoftm" path="res://Scenes/Characters/Player.tscn" id="1_r04ol"]
 [ext_resource type="PackedScene" uid="uid://bkg8korhmvj4p" path="res://Scenes/Characters/Enemy.tscn" id="2_ogtya"]
 [ext_resource type="PackedScene" uid="uid://df5de3u4ui4ty" path="res://Scenes/Managers/cursor_navigator.tscn" id="3_mgcvd"]
-[ext_resource type="Script" uid="uid://diae622d3sil1" path="res://Scripts/CombatSystem/CombatManager.gd" id="4_ogtya"]
+[ext_resource type="Script" uid="uid://dad83f4shm2m7" path="res://Scripts/CombatSystem/CombatManager.gd" id="4_ogtya"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]
 
@@ -13,8 +13,8 @@ position = Vector2(587, -766.00006)
 scale = Vector2(2.659668, 2.7739866)
 texture = ExtResource("1_0yd7g")
 
-[node name="Player2" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("1_r04ol")]
-position = Vector2(362, 342)
+[node name="Player" parent="." unique_id=1549374177 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("1_r04ol")]
+position = Vector2(331, 277)
 scale = Vector2(2, 2)
 multiplayer_cursor_navigator = NodePath("../CursorNavigator")
 
@@ -44,8 +44,7 @@ anchor_grid_end = Vector2(900, 250)
 [node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("enemies", "players", "test_label")]
 script = ExtResource("4_ogtya")
 enemies = [NodePath("../Enemies/EnemyOfficiel"), NodePath("../Enemies/EnemyOfficiel2"), NodePath("../Enemies/EnemyOfficiel3"), NodePath("../Enemies/EnemyOfficiel4")]
-players = [NodePath("../Player2")]
-turn_time_window = 5
+players = [NodePath("../Player")]
 test_label = NodePath("../Label")
 
 [node name="Label" type="Label" parent="." unique_id=800288645]

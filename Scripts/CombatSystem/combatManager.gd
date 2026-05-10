@@ -73,6 +73,7 @@ func handle_players_turn()->void:
 	is_players_turn = true
 	for player in players:
 		player.can_play = true
+		player.reset_action_points()
 
 	## TODO : Remove after tests
 	test_label.text = "Players turn"

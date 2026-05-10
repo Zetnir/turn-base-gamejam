@@ -1,5 +1,5 @@
-class_name Player
 extends Character
+class_name Player
 
 @export var multiplayer_cursor_navigator: MultiplayerCursorNavigator
 @export var player_action: PlayerAction
@@ -51,6 +51,10 @@ func consume_action_points(value: int)->void:
 	action_points -= value
 	player_ui_manager.update_current_ap(action_points)
 
+func reset_action_points()->void:
+	action_points = max_action_points
+	player_ui_manager.update_current_ap(max_action_points)
+
 
 # #-------------------------------------------------------------------------------------
 # ## Player Animations
@@ -59,6 +63,7 @@ func idle_anim()->void:
 	animated_sprite.play("idle")
 
 func play_action_anim(animation_key: String)->void:
+	animated_sprite.stop()
 	animated_sprite.play(animation_key)
 	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
 
