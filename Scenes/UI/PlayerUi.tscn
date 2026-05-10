@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dkiro5ywp01hu"]
+
+[ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/UI/PlayerUiManager.gd" id="1_acs7n"]
+[ext_resource type="Texture2D" uid="uid://dsfqd7k71qjlo" path="res://Assets/Icons/HealthGaugeUnder.png" id="2_5eg4p"]
+[ext_resource type="Texture2D" uid="uid://dsjmn82lpsusk" path="res://Assets/Icons/HealthGaugeOver.png" id="3_5v8ut"]
+[ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_ewrwj"]
+[ext_resource type="Texture2D" uid="uid://c3cccxp1vjli7" path="res://Assets/Icons/ActionGaugeUnder.png" id="5_o5hb0"]
+[ext_resource type="Texture2D" uid="uid://qm1x2hq1b575" path="res://Assets/Icons/ActionGaugeTopG.png" id="6_f8gii"]
+[ext_resource type="Texture2D" uid="uid://bh086qfrw5sv3" path="res://Assets/Icons/Shield.png" id="7_8f2oe"]
+[ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/lightAttack.png" id="8_ganwc"]
+[ext_resource type="Texture2D" uid="uid://b0bkvahadqipn" path="res://Assets/Icons/mediumAttack.png" id="9_2lmg1"]
+[ext_resource type="Texture2D" uid="uid://dy274tg0k0og4" path="res://Assets/Icons/highAttack.png" id="10_006fg"]
+[ext_resource type="Texture2D" uid="uid://crn7cvdu7ml0x" path="res://Assets/Icons/veryHighAttack.png" id="11_uqbvx"]
+
+[node name="PlayerUiManager" type="Control" unique_id=1895891118 node_paths=PackedStringArray("light_damage_icon", "medium_damage_icon", "high_damage_icon", "very_high_damage_icon", "action_point_current", "action_gauge", "health_bar", "health_point_current", "shield_icon", "shield_point_current")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acs7n")
+light_damage_icon = NodePath("LightDamageIcon")
+medium_damage_icon = NodePath("MediumDamageIcon")
+high_damage_icon = NodePath("HighDamageIcon")
+very_high_damage_icon = NodePath("VeryHighDamageIcon")
+action_point_current = NodePath("actionGauge/actionPointCurrent")
+action_gauge = NodePath("actionGauge")
+health_bar = NodePath("healthBar")
+health_point_current = NodePath("healthBar/healthPointCurrent")
+shield_icon = NodePath("shieldIcon")
+shield_point_current = NodePath("shieldIcon/shieldPointCurrent")
+
+[node name="healthBar" type="TextureProgressBar" parent="." unique_id=115896346]
+clip_contents = true
+layout_mode = 0
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = 36.000008
+scale = Vector2(1.445, 1.445)
+pivot_offset = Vector2(8, 8)
+localize_numeral_system = false
+value = 100.0
+texture_under = ExtResource("2_5eg4p")
+texture_progress = ExtResource("3_5v8ut")
+
+[node name="healthPointCurrent" type="Label" parent="healthBar" unique_id=862129332]
+layout_mode = 0
+offset_left = 0.596
+offset_top = -0.151
+offset_right = 14.596
+offset_bottom = 15.849
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("4_ewrwj")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="actionGauge" type="TextureProgressBar" parent="." unique_id=1472427183]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 20.0
+offset_right = 21.00003
+offset_bottom = 36.00004
+scale = Vector2(1.3, 1.3)
+pivot_offset = Vector2(8, 8)
+max_value = 5.0
+value = 5.0
+fill_mode = 3
+texture_under = ExtResource("5_o5hb0")
+texture_progress = ExtResource("6_f8gii")
+tint_progress = Color(0.5821114, 0.9527243, 0.9033092, 1)
+
+[node name="actionPointCurrent" type="Label" parent="actionGauge" unique_id=867434142]
+layout_mode = 0
+offset_left = 0.726
+offset_top = -0.231
+offset_right = 14.726003
+offset_bottom = 15.769
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("4_ewrwj")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shieldIcon" type="TextureRect" parent="." unique_id=1443824150]
+modulate = Color(1.3131658, 1.3131658, 1.3131658, 1)
+layout_mode = 0
+offset_left = -7.6450005
+offset_top = 37.65
+offset_right = 8.355
+offset_bottom = 53.650005
+scale = Vector2(1.54, 1.54)
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("7_8f2oe")
+
+[node name="shieldPointCurrent" type="Label" parent="shieldIcon" unique_id=1950860980]
+layout_mode = 0
+offset_left = 0.626
+offset_top = 0.671
+offset_right = 14.62601
+offset_bottom = 16.671
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("4_ewrwj")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LightDamageIcon" type="TextureRect" parent="." unique_id=1798109365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -394.0
+offset_right = -544.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("8_ganwc")
+
+[node name="MediumDamageIcon" type="TextureRect" parent="." unique_id=983855767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -394.0
+offset_right = -544.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("9_2lmg1")
+
+[node name="HighDamageIcon" type="TextureRect" parent="." unique_id=1366304795]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.999998
+offset_top = -70.0
+offset_right = -544.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("10_006fg")
+
+[node name="VeryHighDamageIcon" type="TextureRect" parent="." unique_id=905200938]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -394.0
+offset_right = -544.0
+offset_bottom = -330.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("11_uqbvx")

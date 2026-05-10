@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://ckmhgdu0rsxkf"]
+
+[ext_resource type="Script" uid="uid://b8vps1lgl4ddy" path="res://Scripts/UI/EnemyUiManager.gd" id="1_7x0ee"]
+[ext_resource type="Texture2D" uid="uid://dsfqd7k71qjlo" path="res://Assets/Icons/HealthGaugeUnder.png" id="2_tbxye"]
+[ext_resource type="Texture2D" uid="uid://dsjmn82lpsusk" path="res://Assets/Icons/HealthGaugeOver.png" id="3_v7rge"]
+[ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_qyoj2"]
+[ext_resource type="Texture2D" uid="uid://bh086qfrw5sv3" path="res://Assets/Icons/Shield.png" id="5_yn4h3"]
+[ext_resource type="Texture2D" uid="uid://c784xgvyj2vcs" path="res://Assets/Icons/attackIcon.png" id="6_im4p2"]
+[ext_resource type="Texture2D" uid="uid://fyktg4g4p0ud" path="res://Assets/Icons/defenseIcon.png" id="7_e4tyw"]
+[ext_resource type="Texture2D" uid="uid://dh1dm21by6cln" path="res://Assets/Icons/AttacksDebuff.png" id="8_och0a"]
+[ext_resource type="Texture2D" uid="uid://dvwfusd5bsvn6" path="res://Assets/Icons/DefensesDebuff.png" id="9_5f7j7"]
+
+[node name="EnemyUiManager" type="Control" unique_id=1895891118 node_paths=PackedStringArray("attack_icon", "defense_icon", "debuff_icon", "health_bar", "health_point_current", "shield_icon", "shield_point_current")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7x0ee")
+attack_icon = NodePath("AttackIcon")
+defense_icon = NodePath("DefenseIcon")
+debuff_icon = NodePath("AtkDebuffIcon")
+health_bar = NodePath("healthBar")
+health_point_current = NodePath("healthBar/healthPointCurrent")
+shield_icon = NodePath("shieldIcon")
+shield_point_current = NodePath("shieldIcon/shieldPointCurrent")
+
+[node name="healthBar" type="TextureProgressBar" parent="." unique_id=1591180202]
+clip_contents = true
+layout_mode = 0
+offset_left = -20.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = 36.000008
+scale = Vector2(1.445, 1.445)
+pivot_offset = Vector2(8, 8)
+localize_numeral_system = false
+value = 100.0
+texture_under = ExtResource("2_tbxye")
+texture_progress = ExtResource("3_v7rge")
+
+[node name="healthPointCurrent" type="Label" parent="healthBar" unique_id=1617958049]
+layout_mode = 0
+offset_left = 0.596
+offset_top = -0.151
+offset_right = 14.596
+offset_bottom = 15.849
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("4_qyoj2")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shieldIcon" type="TextureRect" parent="." unique_id=435729649]
+modulate = Color(1.3131658, 1.3131658, 1.3131658, 1)
+layout_mode = 0
+offset_left = 3.11
+offset_top = 20.0
+offset_right = 19.11
+offset_bottom = 36.0
+scale = Vector2(1.445, 1.445)
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("5_yn4h3")
+
+[node name="shieldPointCurrent" type="Label" parent="shieldIcon" unique_id=2103486570]
+layout_mode = 0
+offset_left = 0.626
+offset_top = 0.671
+offset_right = 14.62601
+offset_bottom = 16.671
+scale = Vector2(0.29, 0.29)
+pivot_offset = Vector2(7, 8)
+theme_override_fonts/font = ExtResource("4_qyoj2")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackIcon" type="TextureRect" parent="." unique_id=2146334630]
+modulate = Color(1, 0.42000002, 0.42000002, 1)
+layout_mode = 0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("6_im4p2")
+
+[node name="DefenseIcon" type="TextureRect" parent="." unique_id=65014605]
+modulate = Color(0.83, 0.83566666, 1, 1)
+layout_mode = 0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.325, 0.325)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("7_e4tyw")
+
+[node name="AtkDebuffIcon" type="TextureRect" parent="." unique_id=254732443]
+modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
+layout_mode = 0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.335, 0.335)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("8_och0a")
+
+[node name="DefDebuffIcon" type="TextureRect" parent="." unique_id=559949010]
+modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
+layout_mode = 0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.335, 0.335)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("9_5f7j7")
