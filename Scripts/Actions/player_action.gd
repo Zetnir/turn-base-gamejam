@@ -1,6 +1,5 @@
-class_name PlayerAction
-
 extends Action
+class_name PlayerAction
 
 var player: Player
 
@@ -27,7 +26,9 @@ func apply_action(action_key: String, target: Character)->void:
 				player.play_action_anim(action.anim)
 				await player.get_tree().create_timer(.5).timeout
 				target.on_hit(action.damage)
-			ActionType.DEBUFF:
+			ActionType.ATK_DEBUFF:
+				pass
+			ActionType.DEF_DEBUFF:
 				pass
 			ActionType.BUFF:
 				pass

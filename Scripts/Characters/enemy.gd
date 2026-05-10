@@ -20,6 +20,7 @@ func _ready() -> void:
 func process_action(players: Array[Player])-> void:
 	var target = choose_target(players)
 	enemy_action.apply_action(next_action_key, target)
+	ui_manager.hide_action_prediction()
 	
 ## Choose Action
 ## TODO : Choose ActionType based 
@@ -40,7 +41,16 @@ func choose_action()->void:
 			break
 
 	# var enemy_action = enemy_action.
+	print("choose action", choosen_key)
 	next_action_key = choosen_key
+	display_preview_action_icon(next_action_key)
+
+func display_preview_action_icon(action_key:String)->void:
+	var enemy_ui_manager = ui_manager as EnemyUiManager
+	var action_type = enemy_action.enemy_action_map.get(action_key).action_type
+	enemy_ui_manager.show_action_type_prediction(action_type)
+
+
 
 ## TODO Do the scoring for AI Attack choose
 # func score_attack()->float:

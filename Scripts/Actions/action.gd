@@ -3,7 +3,8 @@ class_name Action
 
 enum ActionType {
 	ATTACK,
-	DEBUFF,
+	ATK_DEBUFF,
+	DEF_DEBUFF,
 	BUFF,
 	PROTECTION,
 	PROVOCATION

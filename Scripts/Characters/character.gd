@@ -1,5 +1,4 @@
 extends Node
-
 class_name Character
 
 @export var ui_manager: UiManager
@@ -29,14 +28,16 @@ func on_hit(damage: int) -> void:
 
 	if health <= 0:
 		death_anim()
+	else:
+		hurt_anim()
 
 func on_debuff_attack(percent_reduc: int)->void:
 	power_percent -= percent_reduc
-	debuff_attack_timer += 1
+	debuff_attack_timer = 1
 
 func on_debuff_defense(percent_reduc: int)->void:
 	defense_percent -= percent_reduc
-	debuff_defense_timer += 1
+	debuff_defense_timer = 1
 
 func on_protection(block: int)->void:
 	shield += block

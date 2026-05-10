@@ -69,24 +69,11 @@ func enemies_preview_action()->void:
 # #-------------------------------------------------------------------------------------
 # ## Players 
 
-func process_player_action(
-	player_index: int,
-	target_index: int,
-	target_type:TargetType,
-	action_key: String
-) -> void:
-	var player = players[player_index]
-	var target: Character
-	if target_type == TargetType.ENEMY:
-		target = enemies[target_index]
-	## TODO : Enable player targeting in navigator
-	if target_type == TargetType.PLAYER:
-		target = players[target_index]
-
-	player.process_action(action_key, target)
-
 func handle_players_turn()->void:
 	is_processing_turn = true
+
+	enemies_preview_action()
+
 	for player in players:
 		player.can_play = true
 		player.reset_action_points()
@@ -105,6 +92,22 @@ func handle_players_turn()->void:
 
 	## TODO : Remove after tests
 	test_label.text = "Enemies turn"
+
+func process_player_action(
+	player_index: int,
+	target_index: int,
+	target_type:TargetType,
+	action_key: String
+) -> void:
+	var player = players[player_index]
+	var target: Character
+	if target_type == TargetType.ENEMY:
+		target = enemies[target_index]
+	## TODO : Enable player targeting in navigator
+	if target_type == TargetType.PLAYER:
+		target = players[target_index]
+
+	player.process_action(action_key, target)
 
 # func _process(_delta: float) -> void:
 # 	if !isPlayersTurn:
