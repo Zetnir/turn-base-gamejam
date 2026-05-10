@@ -157,7 +157,6 @@ func calculate_enemies_position() -> Array[Vector2]:
 		var row: int = floori(float(i) / float(cols))
 		var new_position = Vector2(x_origin + col * x_spacing - row * 100.0, y_origin + row * y_spacing)
 		positions.append(new_position)
-		print(new_position)
 
 	return positions
 

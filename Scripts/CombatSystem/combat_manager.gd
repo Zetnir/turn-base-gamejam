@@ -35,12 +35,13 @@ func _ready() -> void:
 	is_players_turn = true
 
 func _process(_delta):
-	if is_players_turn && !is_processing_turn:
-		handle_players_turn()
-	elif is_enemies_turn && !is_processing_turn:
-		handle_enemies_turn()
-
 	if !is_combat_won && !is_combat_lost:
+
+		if is_players_turn && !is_processing_turn:
+			handle_players_turn()
+		elif is_enemies_turn && !is_processing_turn:
+			handle_enemies_turn()
+
 		check_enemy_death()
 		check_player_death()
 		check_combat_status()
@@ -56,13 +57,11 @@ func handle_enemies_turn()->void:
 	is_processing_turn = true
 	turn_index +=1
 
-	print("process enemy turn")
-
 	for enemy in enemies:
 		if enemy:
-			enemy.process_action(players)
 			if is_combat_lost:
-				pass
+				break
+			enemy.process_action(players)
 			await get_tree().create_timer(enemy_turn_window).timeout
 
 	await get_tree().create_timer(2).timeout
@@ -106,7 +105,6 @@ func handle_players_turn()->void:
 	## TODO : Remove after tests
 	test_label.text = "Players turn"
 
-	print("handle player turn")
 	await get_tree().create_timer(turn_time_window).timeout
 
 	is_enemies_turn = true
@@ -137,13 +135,11 @@ func check_player_death()->void:
 			if player && !player.is_dead:
 				player.is_dead = true
 				player.death_anim()
-				player.queue_free()
+				# player.queue_free()
 			break
 
 func check_combat_status()->void:
-	print(enemies.size())
 	if  enemies.filter(func(x): return x != null).size() <= 0:
-		print("all enemies dead")
 		is_combat_won = true
 		game_status_manager.toggle_victory_screen()
 		for player in players:

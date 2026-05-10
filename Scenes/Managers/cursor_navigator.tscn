@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df5de3u4ui4ty"]
 
-[ext_resource type="Script" uid="uid://bda07fdrqm2dk" path="res://Scripts/CombatSystem/mutiplayer_cursor_navigator.gd" id="1_cdedo"]
+[ext_resource type="Script" uid="uid://ddd06dqr7833y" path="res://Scripts/CombatSystem/mutiplayer_cursor_navigator.gd" id="1_cdedo"]
 [ext_resource type="Texture2D" uid="uid://dqdxoxqv0aiuh" path="res://Assets/Icons/cursorSelection.png" id="2_cdedo"]
 
 [node name="CursorNavigator" type="Control" unique_id=591851367 node_paths=PackedStringArray("enemy_anchor", "player_cursor")]
@@ -56,6 +56,7 @@ offset_right = -92.0
 offset_bottom = -92.0
 
 [node name="PlayerCursor1" type="TextureRect" parent="." unique_id=1130143592]
+visible = false
 modulate = Color(1.1291975, 0.6528994, 0.37714785, 1)
 layout_mode = 0
 offset_left = -196.0
@@ -66,6 +67,7 @@ texture = ExtResource("2_cdedo")
 expand_mode = 1
 
 [node name="PlayerCursor2" type="TextureRect" parent="." unique_id=428387659]
+visible = false
 modulate = Color(1.1291975, 0.48939413, 1.1291975, 1)
 layout_mode = 0
 offset_left = -195.0
@@ -76,6 +78,7 @@ texture = ExtResource("2_cdedo")
 expand_mode = 1
 
 [node name="PlayerCursor3" type="TextureRect" parent="." unique_id=2052665648]
+visible = false
 modulate = Color(0.685581, 1.1638972, 0.54000664, 1)
 layout_mode = 0
 offset_left = -198.0
@@ -86,6 +89,7 @@ texture = ExtResource("2_cdedo")
 expand_mode = 1
 
 [node name="PlayerCursor4" type="TextureRect" parent="." unique_id=1600377883]
+visible = false
 modulate = Color(0.50534606, 0.8126698, 1.1638972, 1)
 layout_mode = 0
 offset_left = -201.0

@@ -8,7 +8,6 @@ class_name UiManager
 
 # HEALTH BAR
 func update_current_hp(current:int)-> void:
-	print(current)
 	health_point_current.text = str(current)
 	health_bar.value = current
 	

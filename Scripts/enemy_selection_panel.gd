@@ -11,12 +11,9 @@ func _ready() -> void:
 
 func toggle_display_panel () -> void:
 	self.visible = !self.visible
-	print("visible: ", self.visible)
 
 	if(self.visible):
 		enemiesPos[0].grab_focus()
-	pass
 
 func on_enemy_selected(index: int) -> void:
-	print("Enemy %d selected" % index)
 	emit_signal("enemy_selected", index)

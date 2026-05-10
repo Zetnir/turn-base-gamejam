@@ -42,7 +42,6 @@ func choose_action()->void:
 			break
 
 	# var enemy_action = enemy_action.
-	print("choose action", choosen_key)
 	next_action_key = choosen_key
 	display_preview_action_icon(next_action_key)
 

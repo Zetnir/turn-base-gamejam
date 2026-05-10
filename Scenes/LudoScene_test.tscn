@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dladjk75vi0sv" path="res://Scenes/Characters/Player4.tscn" id="4_8drfa"]
 [ext_resource type="Script" uid="uid://dplwgbx05o43l" path="res://Scripts/CombatSystem/combat_manager.gd" id="5_8drfa"]
 [ext_resource type="PackedScene" uid="uid://8yafmj3alr8t" path="res://Scenes/Characters/Player2.tscn" id="5_uclf7"]
+[ext_resource type="PackedScene" uid="uid://dto6oyyn5kata" path="res://Scenes/UI/GameStatusScreen.tscn" id="9_8drfa"]
 
 [node name="LudoScene" type="Node2D" unique_id=2014774887]
 metadata/_edit_horizontal_guides_ = [-74.0]
@@ -24,6 +25,7 @@ texture = ExtResource("1_2k6x8")
 position = Vector2(-220, 160)
 scale = Vector2(2, 2)
 multiplayer_cursor_navigator = NodePath("../CursorNavigator")
+max_action_points = 50
 
 [node name="Player2" parent="." unique_id=1037172054 node_paths=PackedStringArray("multiplayer_cursor_navigator") instance=ExtResource("5_uclf7")]
 position = Vector2(-310, 60)
@@ -62,12 +64,17 @@ position = Vector2(244, 160)
 scale = Vector2(2, 2)
 
 [node name="CursorNavigator" parent="." unique_id=591851367 node_paths=PackedStringArray("combat_manager") instance=ExtResource("4_2k6x8")]
+z_index = 4
 combat_manager = NodePath("../CombatManager")
-anchor_grid_start = Vector2(700, 150)
-anchor_grid_end = Vector2(900, 250)
+anchor_grid_start = Vector2(140, -90)
+anchor_grid_end = Vector2(330, 10)
 
-[node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("test_label")]
+[node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("cursor_navigator", "game_status_manager", "enemies", "players", "test_label")]
 script = ExtResource("5_8drfa")
+cursor_navigator = NodePath("../CursorNavigator")
+game_status_manager = NodePath("../GameStatusScreens")
+enemies = [NodePath("../Enemies/EnemyOfficiel"), NodePath("../Enemies/EnemyOfficiel2"), NodePath("../Enemies/EnemyOfficiel3"), NodePath("../Enemies/EnemyOfficiel4")]
+players = [NodePath("../Player1"), NodePath("../Player2"), NodePath("../Player3"), NodePath("../Player4")]
 test_label = NodePath("../Label")
 
 [node name="Label" type="Label" parent="." unique_id=800288645]
@@ -76,3 +83,5 @@ offset_top = 194.0
 offset_right = 496.0
 offset_bottom = 217.0
 text = "Test"
+
+[node name="GameStatusScreens" parent="." unique_id=14866483 instance=ExtResource("9_8drfa")]

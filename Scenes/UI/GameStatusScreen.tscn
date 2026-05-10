@@ -15,11 +15,18 @@ death_screen = NodePath("DeathScreen")
 [node name="VictoryScreen" type="ColorRect" parent="." unique_id=1889253649]
 visible = false
 z_index = 5
-layout_mode = 0
-offset_left = -50.0
-offset_top = -68.0
-offset_right = 1199.0
-offset_bottom = 721.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -394.5
+offset_right = 624.5
+offset_bottom = 394.5
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.56100005, 0.66, 0, 0.44313726)
 
 [node name="Label" type="Label" parent="VictoryScreen" unique_id=494637568]
@@ -42,11 +49,18 @@ text = "Yaaaayy! Victory!"
 [node name="DeathScreen" type="ColorRect" parent="." unique_id=355685495]
 visible = false
 z_index = 5
-layout_mode = 0
-offset_left = -50.0
-offset_top = -68.0
-offset_right = 1199.0
-offset_bottom = 721.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -394.5
+offset_right = 624.5
+offset_bottom = 394.5
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.46, 0, 0, 0.44313726)
 
 [node name="Label" type="Label" parent="DeathScreen" unique_id=608117576]

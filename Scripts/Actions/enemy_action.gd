@@ -13,12 +13,9 @@ var enemy: Enemy
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enemy = get_parent()
-	print(enemy.name)
 
 func apply_action(action_key: String, target: Character)->void:
 	var action = enemy_action_map.get(action_key)
-	print(action)
-	print(enemy)
 	enemy.play_action_anim(action.anim)
 	enemy.audio_manager.process_action_sound(action_key,enemy.position)
 

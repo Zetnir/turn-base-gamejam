@@ -30,7 +30,6 @@ func _ready():
 		animated_sprite.play("idle")
 
 	player_ui_manager = ui_manager as PlayerUiManager
-	print(player_ui_manager)
 	player_ui_manager.update_current_ap(action_points)
 
 
@@ -49,7 +48,6 @@ func _input(event):
 # ## Player Actions 
 
 func process_action(action_key: String, target: Character) ->void:
-	print("target : ", target)
 	player_action.apply_action(action_key, target)
 
 func consume_action_points(value: int)->void:
@@ -58,7 +56,6 @@ func consume_action_points(value: int)->void:
 
 func reset_action_points()->void:
 	action_points = max_action_points
-	print(player_ui_manager)
 	player_ui_manager.update_current_ap(max_action_points)
 
 func on_hit(damage: int)->void:

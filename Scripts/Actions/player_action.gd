@@ -13,18 +13,20 @@ var player: Player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_parent()
-	print(player.name)
 
 func apply_action(action_key: String, target: Character)->void:
 	var action = player_action_map.get(action_key)
 	if(player.action_points >= action.action_point):
 		match action.action_type:
 			ActionType.ATTACK:
-				print("player:", player.name)
 				player.consume_action_points(action.action_point)
 				player.play_action_anim(action.anim)
 				player.audio_manager.process_action_sound(action_key,player.position)
+				
+				player.can_play = false
 				await player.get_tree().create_timer(.5).timeout
+				player.can_play = true
+
 				target.on_hit(action.damage)
 			ActionType.ATK_DEBUFF:
 				pass
@@ -35,7 +37,11 @@ func apply_action(action_key: String, target: Character)->void:
 			ActionType.PROTECTION:
 				player.consume_action_points(action.action_point)
 				player.play_action_anim(action.anim)
+
+				player.can_play = false
 				await player.get_tree().create_timer(.5).timeout
+				player.can_play = true
+
 				player.on_protection(action.block)
 
 				# player.consume_action_points(action.action_point)

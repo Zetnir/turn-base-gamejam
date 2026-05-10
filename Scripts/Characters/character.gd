@@ -42,18 +42,21 @@ func on_hit(damage: int) -> void:
 	else:
 		hurt_anim()
 		await get_tree().create_timer(0.02).timeout
-		vfx_manager.play_hit(self.position)
+		if vfx_manager:
+			vfx_manager.play_hit(self.position)
 
 
 func on_debuff_attack(percent_reduc: int)->void:
 	power_percent -= percent_reduc
 	debuff_attack_timer = 1
-	vfx_manager.play_atk_debuff(self.position)
+	if vfx_manager:
+		vfx_manager.play_atk_debuff(self.position)
 
 func on_debuff_defense(percent_reduc: int)->void:
 	defense_percent -= percent_reduc
 	debuff_defense_timer = 1
-	vfx_manager.play_def_debuff(self.position)
+	if vfx_manager:
+		vfx_manager.play_def_debuff(self.position)
 
 func on_protection(block: int)->void:
 	shield += block
