@@ -2,7 +2,7 @@ extends Node
 class_name Character
 
 @export var ui_manager: UiManager
-@export var max_health = 100
+@export var max_health = 100.0
 @export var base_power_percent = 100.0
 @export var base_defense_percent = 0.0
 @export var animated_sprite: AnimatedSprite2D
