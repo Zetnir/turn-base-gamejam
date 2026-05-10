@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihfliwdq1ho0"
-path="res://.godot/imported/Debuff.png-5d70168fc3285bfa8f5dc3a1cee4320b.ctex"
+uid="uid://cyj302clpgeqq"
+path="res://.godot/imported/damage.png-87e249a5cabb8aea52801fbd8596ff95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/VFX/Debuff.png"
-dest_files=["res://.godot/imported/Debuff.png-5d70168fc3285bfa8f5dc3a1cee4320b.ctex"]
+source_file="res://Assets/VFX/damage.png"
+dest_files=["res://.godot/imported/damage.png-87e249a5cabb8aea52801fbd8596ff95.ctex"]
 
 [params]
 

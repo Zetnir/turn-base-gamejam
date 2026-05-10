@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvqnnvmbvbu1b" path="res://Scripts/Characters/player.gd" id="1_4opfx"]
 [ext_resource type="SpriteFrames" uid="uid://c0w5ijk4lodgs" path="res://Animation/PlayerAnim.tres" id="2_7pt4t"]
+[ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_7qdam"]
 [ext_resource type="PackedScene" uid="uid://dkiro5ywp01hu" path="res://Scenes/UI/PlayerUi.tscn" id="9_meglp"]
 [ext_resource type="Script" uid="uid://tj46n7qfplyt" path="res://Scripts/Actions/player_action.gd" id="16_vtvfp"]
 
@@ -10,6 +11,8 @@ script = ExtResource("1_4opfx")
 player_action = NodePath("ActionPlayer")
 ui_manager = NodePath("PlayerUiManager")
 animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_7qdam")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204238431]
 modulate = Color(1, 0.69411767, 0.52156866, 1)
