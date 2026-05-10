@@ -158,6 +158,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5s7gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rt81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s7gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rt81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s7gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rt81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s7gc")
+}],
+"loop": false,
+"name": &"debuff",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1q1fm")
 }, {
 "duration": 1.0,
@@ -231,8 +257,10 @@ animated_sprite = NodePath("AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_5s7gc")
-animation = &"idle"
+animation = &"debuff"
 autoplay = "idle"
+frame = 6
+frame_progress = 1.0
 
 [node name="EnemyUiManager" parent="." unique_id=1895891118 instance=ExtResource("7_4k6ug")]
 
