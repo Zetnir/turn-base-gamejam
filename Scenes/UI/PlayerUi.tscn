@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkiro5ywp01hu"]
 
-[ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/UI/player_ui_manager.gd" id="1_acs7n"]
+[ext_resource type="Script" uid="uid://bemqpiglh6c8q" path="res://Scripts/UI/player_ui_manager.gd" id="1_acs7n"]
 [ext_resource type="Texture2D" uid="uid://dsfqd7k71qjlo" path="res://Assets/Icons/HealthGaugeUnder.png" id="2_5eg4p"]
 [ext_resource type="Texture2D" uid="uid://dsjmn82lpsusk" path="res://Assets/Icons/HealthGaugeOver.png" id="3_5v8ut"]
 [ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_ewrwj"]
@@ -114,67 +114,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LightDamageIcon" type="TextureRect" parent="." unique_id=1798109365]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -394.0
-offset_right = -544.0
-offset_bottom = -330.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -32.6
+offset_top = -76.6
+offset_right = 31.400002
+offset_bottom = -12.599998
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("8_ganwc")
 
 [node name="MediumDamageIcon" type="TextureRect" parent="." unique_id=983855767]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -394.0
-offset_right = -544.0
-offset_bottom = -330.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -32.6
+offset_top = -76.6
+offset_right = 31.400002
+offset_bottom = -12.599998
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("9_2lmg1")
 
 [node name="HighDamageIcon" type="TextureRect" parent="." unique_id=1366304795]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.999998
-offset_top = -70.0
-offset_right = -544.0
-offset_bottom = -330.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -32.6
+offset_top = -76.6
+offset_right = 31.400002
+offset_bottom = -12.599998
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("10_006fg")
 
 [node name="VeryHighDamageIcon" type="TextureRect" parent="." unique_id=905200938]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -608.0
-offset_top = -394.0
-offset_right = -544.0
-offset_bottom = -330.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = -32.6
+offset_top = -76.6
+offset_right = 31.400002
+offset_bottom = -12.599998
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("11_uqbvx")
