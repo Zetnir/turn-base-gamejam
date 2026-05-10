@@ -10,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="7_w38he"]
 [ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/UI/PlayerUiManager.gd" id="8_4opfx"]
 [ext_resource type="Texture2D" uid="uid://dugje7k20wol3" path="res://Assets/Icons/actionGauge.png" id="9_5kd0c"]
-[ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/fc1057.png" id="9_shd1k"]
-[ext_resource type="Texture2D" uid="uid://b0bkvahadqipn" path="res://Assets/Icons/fc1058.png" id="10_5kd0c"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/fc1057.png" id="9_shd1k"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/fc1058.png" id="10_5kd0c"]
 [ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="10_aal88"]
-[ext_resource type="Texture2D" uid="uid://dy274tg0k0og4" path="res://Assets/Icons/fc1059.png" id="11_aal88"]
-[ext_resource type="Texture2D" uid="uid://crn7cvdu7ml0x" path="res://Assets/Icons/fc1063.png" id="12_4opfx"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/fc1059.png" id="11_aal88"]
+[ext_resource type="Texture2D" path="res://Assets/Icons/fc1063.png" id="12_4opfx"]
 [ext_resource type="Script" uid="uid://bnti1bkdvs731" path="res://Scripts/Actions/PlayerAction.gd" id="16_vtvfp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gc10f"]
@@ -376,6 +376,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LightDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1999953554]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

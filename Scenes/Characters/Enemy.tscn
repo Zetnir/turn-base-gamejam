@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cp8gcr637pfy3" path="res://Assets/Characters/Orc/Orc/Orc-Attack02.png" id="3_17cwd"]
 [ext_resource type="Texture2D" uid="uid://bh14sbrl2xm0a" path="res://Assets/Characters/Orc/Orc/Orc-Hurt.png" id="4_hw8um"]
 [ext_resource type="Texture2D" uid="uid://fyktg4g4p0ud" path="res://Assets/Icons/defenseIcon.png" id="4_xb08l"]
-[ext_resource type="Texture2D" uid="uid://bn7umdl5e4kis" path="res://Assets/Icons/debuffIcon.png" id="5_gdwie"]
+[ext_resource type="Texture2D" uid="uid://dh1dm21by6cln" path="res://Assets/Icons/AttacksDebuff.png" id="11_17cwd"]
+[ext_resource type="Texture2D" uid="uid://dvwfusd5bsvn6" path="res://Assets/Icons/DefensesDebuff.png" id="12_hw8um"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5s7gc"]
 atlas = ExtResource("1_blhco")
@@ -219,7 +220,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 11.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ccht0"]
@@ -234,14 +235,15 @@ region = Rect2(55, 70, 34.581, 5.263)
 script = ExtResource("1_kjg46")
 animated_sprite = NodePath("AnimatedSprite2D")
 ui_manager = NodePath("EnemyUiManager")
+health = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_5s7gc")
-animation = &"heavyAttack"
+animation = &"idle"
 autoplay = "idle"
 
-[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "debuff_icon", "health_bar")]
+[node name="EnemyUiManager" type="Control" parent="." unique_id=362421365 node_paths=PackedStringArray("attack_icon", "defense_icon", "atk_debuff_icon", "def_debuff_icon", "health_bar")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -249,17 +251,18 @@ offset_bottom = 40.0
 script = ExtResource("2_4k6ug")
 attack_icon = NodePath("AttackIcon")
 defense_icon = NodePath("DefenseIcon")
-debuff_icon = NodePath("DebuffIcon")
+atk_debuff_icon = NodePath("AtkDebuffIcon")
+def_debuff_icon = NodePath("DefDebuffIcon")
 health_bar = NodePath("healthBar")
 
 [node name="healthBar" type="TextureProgressBar" parent="EnemyUiManager" unique_id=1253625678]
 clip_contents = true
 layout_mode = 0
-offset_left = -28.000015
+offset_left = -18.000002
 offset_top = 19.000008
-offset_right = 5.9999847
+offset_right = 15.999998
 offset_bottom = 24.000008
-scale = Vector2(1.645, 0.946)
+scale = Vector2(1.045, 0.946)
 value = 100.0
 texture_under = SubResource("AtlasTexture_ccht0")
 texture_progress = SubResource("AtlasTexture_u7jc0")
@@ -286,13 +289,24 @@ scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
 texture = ExtResource("4_xb08l")
 
-[node name="DebuffIcon" type="TextureRect" parent="EnemyUiManager" unique_id=1692678134]
+[node name="AtkDebuffIcon" type="TextureRect" parent="EnemyUiManager" unique_id=1692678134]
 modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
 layout_mode = 0
 offset_left = -31.999998
 offset_top = -68.0
 offset_right = 32.0
 offset_bottom = -4.0
-scale = Vector2(0.41, 0.41)
+scale = Vector2(0.335, 0.335)
 pivot_offset = Vector2(32, 32)
-texture = ExtResource("5_gdwie")
+texture = ExtResource("11_17cwd")
+
+[node name="DefDebuffIcon" type="TextureRect" parent="EnemyUiManager" unique_id=1229761033]
+modulate = Color(0.7629907, 0.86693424, 0.89856935, 1)
+layout_mode = 0
+offset_left = -31.999998
+offset_top = -68.0
+offset_right = 32.0
+offset_bottom = -4.0
+scale = Vector2(0.335, 0.335)
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("12_hw8um")

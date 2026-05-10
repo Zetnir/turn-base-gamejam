@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0nbe30qqd6nr"
-path="res://.godot/imported/fc1057.png-89c16ee09402c4b0347845fa994cd074.ctex"
+uid="uid://dh1dm21by6cln"
+path="res://.godot/imported/AttacksDebuff.png-955914fa7c5571a35965fc63ec732a97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/fc1057.png"
-dest_files=["res://.godot/imported/fc1057.png-89c16ee09402c4b0347845fa994cd074.ctex"]
+source_file="res://Assets/Icons/AttacksDebuff.png"
+dest_files=["res://.godot/imported/AttacksDebuff.png-955914fa7c5571a35965fc63ec732a97.ctex"]
 
 [params]
 

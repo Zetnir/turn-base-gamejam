@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crn7cvdu7ml0x"
-path="res://.godot/imported/veryHighAttack.png-8be2f6645469704238fad3ed257d67da.ctex"
+uid="uid://dwk21gk8mu7i2"
+path="res://.godot/imported/Slash.png-7b36e2b298883516a4bea05b58b3ed2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/veryHighAttack.png"
-dest_files=["res://.godot/imported/veryHighAttack.png-8be2f6645469704238fad3ed257d67da.ctex"]
+source_file="res://Assets/VFX/Slash.png"
+dest_files=["res://.godot/imported/Slash.png-7b36e2b298883516a4bea05b58b3ed2c.ctex"]
 
 [params]
 

@@ -41,7 +41,16 @@ combat_manager = NodePath("../CombatManager")
 anchor_grid_start = Vector2(700, 150)
 anchor_grid_end = Vector2(900, 250)
 
-[node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("enemies", "players")]
+[node name="CombatManager" type="Node" parent="." unique_id=1897046168 node_paths=PackedStringArray("enemies", "players", "test_label")]
 script = ExtResource("4_ogtya")
 enemies = [NodePath("../Enemies/EnemyOfficiel"), NodePath("../Enemies/EnemyOfficiel2"), NodePath("../Enemies/EnemyOfficiel3"), NodePath("../Enemies/EnemyOfficiel4")]
 players = [NodePath("../Player2")]
+turn_time_window = 5
+test_label = NodePath("../Label")
+
+[node name="Label" type="Label" parent="." unique_id=800288645]
+offset_left = 445.0
+offset_top = 194.0
+offset_right = 496.0
+offset_bottom = 217.0
+text = "Test"
