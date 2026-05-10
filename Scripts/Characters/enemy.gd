@@ -34,4 +34,3 @@ func idle_anim()->void:
 func hurt_anim()->void:
 	animated_sprite.play("hurt")
 	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
-

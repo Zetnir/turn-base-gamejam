@@ -9,12 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="5_w38he"]
 [ext_resource type="Texture2D" uid="uid://lfknuaogx7sc" path="res://Assets/Icons/healthBarOver.png" id="7_w38he"]
 [ext_resource type="Script" uid="uid://d2c5187sg8ymf" path="res://Scripts/UI/PlayerUiManager.gd" id="8_4opfx"]
-[ext_resource type="Texture2D" uid="uid://dugje7k20wol3" path="res://Assets/Icons/actionGauge.png" id="9_5kd0c"]
-[ext_resource type="Texture2D" path="res://Assets/Icons/fc1057.png" id="9_shd1k"]
-[ext_resource type="Texture2D" path="res://Assets/Icons/fc1058.png" id="10_5kd0c"]
+[ext_resource type="Texture2D" uid="uid://b0bkvahadqipn" path="res://Assets/Icons/mediumAttack.png" id="10_5kd0c"]
 [ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="10_aal88"]
-[ext_resource type="Texture2D" path="res://Assets/Icons/fc1059.png" id="11_aal88"]
-[ext_resource type="Texture2D" path="res://Assets/Icons/fc1063.png" id="12_4opfx"]
+[ext_resource type="Texture2D" uid="uid://dugje7k20wol3" path="res://Assets/Icons/actionGauge.png" id="11_aal88"]
+[ext_resource type="Texture2D" uid="uid://crn7cvdu7ml0x" path="res://Assets/Icons/veryHighAttack.png" id="12_4opfx"]
+[ext_resource type="Texture2D" uid="uid://b0nbe30qqd6nr" path="res://Assets/Icons/lightAttack.png" id="12_vtvfp"]
+[ext_resource type="Texture2D" uid="uid://dy274tg0k0og4" path="res://Assets/Icons/highAttack.png" id="14_ypuv8"]
 [ext_resource type="Script" uid="uid://bnti1bkdvs731" path="res://Scripts/Actions/PlayerAction.gd" id="16_vtvfp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gc10f"]
@@ -359,8 +359,8 @@ pivot_offset = Vector2(32, 32)
 max_value = 5.0
 value = 5.0
 fill_mode = 3
-texture_under = ExtResource("9_5kd0c")
-texture_progress = ExtResource("9_5kd0c")
+texture_under = ExtResource("11_aal88")
+texture_progress = ExtResource("11_aal88")
 tint_progress = Color(0.47308242, 1.2700531, 1.5598607, 1)
 
 [node name="actionPointCurrent" type="Label" parent="PlayerUiManager/actionGauge" unique_id=1192011076]
@@ -391,7 +391,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
-texture = ExtResource("9_shd1k")
+texture = ExtResource("12_vtvfp")
 
 [node name="MediumDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=999938058]
 visible = false
@@ -425,7 +425,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.325, 0.325)
 pivot_offset = Vector2(32, 32)
-texture = ExtResource("11_aal88")
+texture = ExtResource("14_ypuv8")
 
 [node name="VeryHighDamageIcon" type="TextureRect" parent="PlayerUiManager" unique_id=1474092234]
 visible = false
