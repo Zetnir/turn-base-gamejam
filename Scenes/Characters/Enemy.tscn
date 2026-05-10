@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cdxeloje68s4d" path="res://Assets/Characters/Orc/Orc/Orc-Attack01.png" id="1_blhco"]
 [ext_resource type="Texture2D" uid="uid://d1hg7ggvyd5c0" path="res://Assets/Characters/Orc/Orc/Orc-Idle.png" id="1_ccht0"]
-[ext_resource type="Script" uid="uid://0pafu6onwey3" path="res://Scripts/Characters/Enemy.gd" id="1_kjg46"]
+[ext_resource type="Script" uid="uid://0pafu6onwey3" path="res://Scripts/Characters/enemy.gd" id="1_kjg46"]
 [ext_resource type="Texture2D" uid="uid://bosjvbu10cbia" path="res://Assets/Characters/Orc/Orc/Orc-Death.png" id="2_kjg46"]
 [ext_resource type="Texture2D" uid="uid://cp8gcr637pfy3" path="res://Assets/Characters/Orc/Orc/Orc-Attack02.png" id="3_17cwd"]
 [ext_resource type="Texture2D" uid="uid://bh14sbrl2xm0a" path="res://Assets/Characters/Orc/Orc/Orc-Hurt.png" id="4_hw8um"]
 [ext_resource type="PackedScene" uid="uid://ckmhgdu0rsxkf" path="res://Scenes/UI/EnemyUi.tscn" id="7_4k6ug"]
-[ext_resource type="Script" uid="uid://byxblghrrx4eh" path="res://Scripts/Actions/EnemyAction.gd" id="8_xb08l"]
+[ext_resource type="Script" uid="uid://byxblghrrx4eh" path="res://Scripts/Actions/enemy_action.gd" id="8_xb08l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5s7gc"]
 atlas = ExtResource("1_blhco")

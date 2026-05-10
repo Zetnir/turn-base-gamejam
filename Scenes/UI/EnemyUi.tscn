@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckmhgdu0rsxkf"]
 
-[ext_resource type="Script" uid="uid://b8vps1lgl4ddy" path="res://Scripts/UI/EnemyUiManager.gd" id="1_7x0ee"]
+[ext_resource type="Script" uid="uid://b8vps1lgl4ddy" path="res://Scripts/UI/enemy_ui_manager.gd" id="1_7x0ee"]
 [ext_resource type="Texture2D" uid="uid://dsfqd7k71qjlo" path="res://Assets/Icons/HealthGaugeUnder.png" id="2_tbxye"]
 [ext_resource type="Texture2D" uid="uid://dsjmn82lpsusk" path="res://Assets/Icons/HealthGaugeOver.png" id="3_v7rge"]
 [ext_resource type="FontFile" uid="uid://ckltqwtwixfer" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_qyoj2"]

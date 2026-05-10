@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://8yafmj3alr8t"]
 
-[ext_resource type="Script" uid="uid://witgtt61wktm" path="res://Scripts/Characters/Player.gd" id="1_whnpd"]
+[ext_resource type="Script" uid="uid://witgtt61wktm" path="res://Scripts/Characters/player.gd" id="1_whnpd"]
 [ext_resource type="Texture2D" uid="uid://cyroh7vc8xng1" path="res://Assets/Characters/Knight/Knight/Knight-Attack01.png" id="2_bpeqj"]
 [ext_resource type="Texture2D" uid="uid://bfvf3iujcise0" path="res://Assets/Characters/Knight/Knight/Knight-Block.png" id="3_2a6ko"]
 [ext_resource type="Texture2D" uid="uid://ddqjyn31lesxt" path="res://Assets/Characters/Knight/Knight/Knight-Death.png" id="4_v7lgq"]
 [ext_resource type="Texture2D" uid="uid://c3tt4rlrqas2g" path="res://Assets/Characters/Knight/Knight/Knight-Attack03.png" id="5_volig"]
 [ext_resource type="Texture2D" uid="uid://cotnww1tf5qgg" path="res://Assets/Characters/Knight/Knight/Knight-Hurt.png" id="6_d7884"]
 [ext_resource type="Texture2D" uid="uid://1apunjse0c0v" path="res://Assets/Characters/Knight/Knight/Knight-Idle.png" id="7_2quki"]
-[ext_resource type="Script" uid="uid://bnti1bkdvs731" path="res://Scripts/Actions/PlayerAction.gd" id="8_r4qkg"]
+[ext_resource type="Script" uid="uid://bnti1bkdvs731" path="res://Scripts/Actions/player_action.gd" id="8_r4qkg"]
 [ext_resource type="PackedScene" uid="uid://dkiro5ywp01hu" path="res://Scenes/UI/PlayerUi.tscn" id="9_neq5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gc10f"]
