@@ -4,14 +4,9 @@ class_name Player
 @export var multiplayer_cursor_navigator: MultiplayerCursorNavigator
 @export var player_action: PlayerAction
 
-@export var light_damage_tresh = 0.2
-@export var medium_damage_tresh = 0.4
-@export var high_damage_tresh = 0.4
-
 @export var player_index: int = 0
 
-@export var max_action_points: int = 6
-var action_points:int = max_action_points
+var action_points: int = 0
 var can_play: bool = false
 
 var player_ui_manager: PlayerUiManager
@@ -30,6 +25,8 @@ func _ready():
 		animated_sprite.play("idle")
 
 	player_ui_manager = ui_manager as PlayerUiManager
+	action_points = stats.max_action_points
+	player_ui_manager.update_max_ap(stats.max_action_points)
 	player_ui_manager.update_current_ap(action_points)
 
 
@@ -55,8 +52,8 @@ func consume_action_points(value: int)->void:
 	player_ui_manager.update_current_ap(action_points)
 
 func reset_action_points()->void:
-	action_points = max_action_points
-	player_ui_manager.update_current_ap(max_action_points)
+	action_points = stats.max_action_points
+	player_ui_manager.update_current_ap(stats.max_action_points)
 
 func on_hit(damage: int)->void:
 	await super.on_hit(damage)
@@ -72,11 +69,15 @@ func preview_damage_received(damage: float)->void:
 	if damage == 0:
 		return
 
-	if damage < health * light_damage_tresh:
+	var light = stats.light_damage_threshold
+	var medium = stats.medium_damage_threshold
+	var high = stats.high_damage_threshold
+
+	if damage < health * light:
 		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.LIGHT)
-	if damage >= health * light_damage_tresh && damage < health * medium_damage_tresh:
+	if damage >= health * light && damage < health * medium:
 		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.MEDIUM)
-	if damage >= health * medium_damage_tresh && damage < health * high_damage_tresh:
+	if damage >= health * medium && damage < health * high:
 		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.HIGH)
-	if damage >= health * high_damage_tresh:
+	if damage >= health * high:
 		player_ui_manager.show_dmg_prediction(PlayerUiManager.DamageLevel.VERY_HIGH)

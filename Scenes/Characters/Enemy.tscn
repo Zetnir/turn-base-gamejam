@@ -4,15 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_gdwie"]
 [ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="2_u7jc0"]
 [ext_resource type="SpriteFrames" uid="uid://cccjffgb7ejjl" path="res://Animation/EnemyAnim.tres" id="3_ccht0"]
-[ext_resource type="Script" path="res://Scripts/UI/vfx_manager.gd" id="3_u7jc0"]
 [ext_resource type="PackedScene" uid="uid://ckmhgdu0rsxkf" path="res://Scenes/UI/EnemyUi.tscn" id="7_4k6ug"]
+[ext_resource type="Script" uid="uid://beoqj0ksyjmlh" path="res://Scripts/Resources/ability_data.gd" id="8_17cwd"]
 [ext_resource type="Script" uid="uid://cfjkxnn7c1xi4" path="res://Scripts/Actions/enemy_action.gd" id="8_xb08l"]
+[ext_resource type="CharacterData" uid="uid://cenemystats01" path="res://Resources/Characters/enemy_stats.tres" id="9_estat"]
+[ext_resource type="AbilityData" uid="uid://ceabasicatk01" path="res://Resources/Abilities/enemy_basic_attack.tres" id="10_ebasc"]
+[ext_resource type="AbilityData" uid="uid://ceaguard00001" path="res://Resources/Abilities/enemy_guard.tres" id="11_egrd"]
+[ext_resource type="AbilityData" uid="uid://ceadebufatk01" path="res://Resources/Abilities/enemy_debuff_attack.tres" id="12_edatk"]
+[ext_resource type="AbilityData" uid="uid://ceadebufdef01" path="res://Resources/Abilities/enemy_debuff_defense.tres" id="13_eddef"]
 
 [node name="Enemy" type="Node2D" unique_id=1065316994 node_paths=PackedStringArray("enemy_action", "ui_manager", "animated_sprite", "vfx_manager", "audio_manager")]
 script = ExtResource("1_kjg46")
 enemy_action = NodePath("EnemyAction")
 ui_manager = NodePath("EnemyUiManager")
-max_health = 10.0
+stats = ExtResource("9_estat")
 animated_sprite = NodePath("AnimatedSprite2D")
 vfx_manager = NodePath("VfxManager")
 audio_manager = NodePath("AudioManager")
@@ -21,18 +26,16 @@ audio_manager = NodePath("AudioManager")
 
 [node name="VfxManager" parent="." unique_id=862011693 instance=ExtResource("2_gdwie")]
 z_index = 2
-script = ExtResource("3_u7jc0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248135984]
 scale = Vector2(-2, 2)
 sprite_frames = ExtResource("3_ccht0")
-animation = &"debuff"
+animation = &"idle"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 
 [node name="EnemyUiManager" parent="." unique_id=1895891118 instance=ExtResource("7_4k6ug")]
 
 [node name="EnemyAction" type="Node" parent="." unique_id=534717925 node_paths=PackedStringArray("audio_manager")]
 script = ExtResource("8_xb08l")
 audio_manager = NodePath("../AudioManager")
+abilities = Array[ExtResource("8_17cwd")]([ExtResource("10_ebasc"), ExtResource("11_egrd"), ExtResource("12_edatk"), ExtResource("13_eddef")])

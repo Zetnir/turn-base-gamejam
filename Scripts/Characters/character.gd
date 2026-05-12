@@ -2,25 +2,35 @@ extends Node
 class_name Character
 
 @export var ui_manager: UiManager
-@export var max_health = 100.0
-@export var base_power_percent = 100.0
-@export var base_defense_percent = 0.0
+@export var stats: CharacterData
 @export var animated_sprite: AnimatedSprite2D
 @export var vfx_manager: VfxManager
 @export var audio_manager: Node
 
 
-var health = max_health
+var health: float = 0.0
 var debuff_attack_timer = 0
 var debuff_defense_timer = 0
 var shield_timer = 0
-var power_percent = base_power_percent
-var defense_percent = base_defense_percent
+var power_percent: float = 100.0
+var defense_percent: float = 0.0
 var shield = 0
 var is_dead = false
 
 func _ready():
-	health = max_health
+	if stats != null and stats.resource_path != "":
+		var fresh := ResourceLoader.load(stats.resource_path, "", ResourceLoader.CACHE_MODE_IGNORE) as CharacterData
+		if fresh:
+			stats = fresh
+
+	if stats == null:
+		push_warning(name + ": stats is null, using defaults")
+		stats = CharacterData.new()
+
+	health = stats.max_health
+	power_percent = stats.base_power_percent
+	defense_percent = stats.base_defense_percent
+	ui_manager.update_max_hp(int(stats.max_health))
 	ui_manager.update_current_hp(health)
 
 func on_hit(damage: int) -> void:
@@ -70,13 +80,13 @@ func reduce_timers()->void:
 	if debuff_attack_timer > 0:
 		debuff_attack_timer -= 1
 		if debuff_attack_timer >= 0:
-			power_percent = base_power_percent
+			power_percent = stats.base_power_percent
 
 	## Debuff Defense
 	if debuff_defense_timer > 0:
 		debuff_defense_timer -= 1
 		if debuff_defense_timer >= 0:
-			defense_percent = base_defense_percent
+			defense_percent = stats.base_defense_percent
 	
 	## Shield
 	if shield_timer > 0:
@@ -99,11 +109,17 @@ func idle_anim()->void:
 	animated_sprite.play("idle")
 
 func play_action_anim(animation_key: String)->void:
+	if not animated_sprite.sprite_frames.has_animation(animation_key):
+		return
+	if animated_sprite.animation_finished.is_connected(idle_anim):
+		animated_sprite.animation_finished.disconnect(idle_anim)
 	animated_sprite.stop()
 	animated_sprite.play(animation_key)
 	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
 
 func hurt_anim()->void:
+	if animated_sprite.animation_finished.is_connected(idle_anim):
+		animated_sprite.animation_finished.disconnect(idle_anim)
 	animated_sprite.play("hurt")
 	animated_sprite.animation_finished.connect(idle_anim, CONNECT_ONE_SHOT)
 

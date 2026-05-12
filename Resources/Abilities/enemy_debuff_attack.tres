@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://ceadebufatk01"]
+
+[ext_resource type="Script" uid="uid://beoqj0ksyjmlh" path="res://Scripts/Resources/ability_data.gd" id="1_abil"]
+
+[resource]
+script = ExtResource("1_abil")
+ability_name = "debuff_attack"
+action_type = 1
+anim = "debuff"
+weight = 15
+percent_reduc = 20

@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://chsvy77o8lqy8" path="res://Scripts/UI/game_status_manager.gd" id="1_k1b2a"]
 [ext_resource type="FontFile" uid="uid://bvb1gunglbc4f" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_6fd3a"]
+[ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="3_6fd3a"]
 
-[node name="GameStatusScreens" type="Control" unique_id=14866483 node_paths=PackedStringArray("victory_screen", "death_screen")]
+[node name="GameStatusScreens" type="Control" unique_id=14866483 node_paths=PackedStringArray("victory_screen", "death_screen", "audio_manager")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -11,6 +12,7 @@ offset_bottom = 40.0
 script = ExtResource("1_k1b2a")
 victory_screen = NodePath("VictoryScreen")
 death_screen = NodePath("DeathScreen")
+audio_manager = NodePath("AudioManager")
 
 [node name="VictoryScreen" type="ColorRect" parent="." unique_id=1889253649]
 visible = false
@@ -79,3 +81,5 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_6fd3a")
 theme_override_font_sizes/font_size = 24
 text = "Prout... you're dead!"
+
+[node name="AudioManager" parent="." unique_id=542018590 instance=ExtResource("3_6fd3a")]

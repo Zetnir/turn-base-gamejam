@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://ceabasicatk01"]
+
+[ext_resource type="Script" uid="uid://beoqj0ksyjmlh" path="res://Scripts/Resources/ability_data.gd" id="1_abil"]
+
+[resource]
+script = ExtResource("1_abil")
+ability_name = "basic_attack"
+anim = "basicAttack"
+weight = 40
+damage = 10

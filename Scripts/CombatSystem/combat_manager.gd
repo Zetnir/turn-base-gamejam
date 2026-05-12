@@ -3,6 +3,7 @@ class_name CombatManager
 
 @export var cursor_navigator: MultiplayerCursorNavigator
 @export var game_status_manager: GameStatusManager
+@export var audio_manager: Node
 
 @export var enemies: Array[Enemy]
 @export var players: Array[Player]
@@ -135,17 +136,32 @@ func check_player_death()->void:
 			if player && !player.is_dead:
 				player.is_dead = true
 				player.death_anim()
-				# player.queue_free()
+				#player.queue_free()
 			break
 
 func check_combat_status()->void:
-	if  enemies.filter(func(x): return x != null).size() <= 0:
+	if is_combat_won or is_combat_lost:
+		return
+
+	var alive_enemies = 0
+	for e in enemies:
+		if is_instance_valid(e):
+			alive_enemies += 1
+
+	if alive_enemies <= 0:
 		is_combat_won = true
 		game_status_manager.toggle_victory_screen()
 		for player in players:
-			player.can_play = false
+			if player:
+				player.can_play = false
+		return
 
-	if  players.filter(func(x): return x != null).size() <= 0:
+	var alive_players = 0
+	for p in players:
+		if is_instance_valid(p):
+			alive_players += 1
+
+	if alive_players <= 0:
 		is_combat_lost = true
 		game_status_manager.toggle_death_screen()
 

@@ -4,13 +4,20 @@
 [ext_resource type="SpriteFrames" uid="uid://c0w5ijk4lodgs" path="res://Animation/PlayerAnim.tres" id="2_7pt4t"]
 [ext_resource type="PackedScene" uid="uid://be0wjpu07135w" path="res://Scenes/Managers/vfxManager.tscn" id="2_7qdam"]
 [ext_resource type="PackedScene" uid="uid://bw1n6six540wx" path="res://Scenes/Audio/audio_manager.tscn" id="3_gc10f"]
+[ext_resource type="Script" uid="uid://beoqj0ksyjmlh" path="res://Scripts/Resources/ability_data.gd" id="8_shd1k"]
 [ext_resource type="PackedScene" uid="uid://dkiro5ywp01hu" path="res://Scenes/UI/PlayerUi.tscn" id="9_meglp"]
 [ext_resource type="Script" uid="uid://tj46n7qfplyt" path="res://Scripts/Actions/player_action.gd" id="16_vtvfp"]
+[ext_resource type="CharacterData" uid="uid://cplaystats01a" path="res://Resources/Characters/player_stats.tres" id="17_pstat"]
+[ext_resource type="AbilityData" uid="uid://cpabasicatk01" path="res://Resources/Abilities/player_basic_attack.tres" id="18_pbasc"]
+[ext_resource type="AbilityData" uid="uid://cpaheavyatk01" path="res://Resources/Abilities/player_heavy_attack.tres" id="19_phavy"]
+[ext_resource type="AbilityData" uid="uid://cpaguard00001" path="res://Resources/Abilities/player_guard.tres" id="20_pgrd"]
+[ext_resource type="AbilityData" uid="uid://cpaprovoc0001" path="res://Resources/Abilities/player_provocation.tres" id="21_pprov"]
 
 [node name="Player" type="Node2D" unique_id=1549374177 node_paths=PackedStringArray("player_action", "ui_manager", "animated_sprite", "vfx_manager", "audio_manager")]
 script = ExtResource("1_4opfx")
 player_action = NodePath("ActionPlayer")
 ui_manager = NodePath("PlayerUiManager")
+stats = ExtResource("17_pstat")
 animated_sprite = NodePath("AnimatedSprite2D")
 vfx_manager = NodePath("VfxManager")
 audio_manager = NodePath("AudioManager")
@@ -31,5 +38,7 @@ autoplay = "idle"
 frame = 7
 frame_progress = 1.0
 
-[node name="ActionPlayer" type="Node" parent="." unique_id=102161743]
+[node name="ActionPlayer" type="Node" parent="." unique_id=102161743 node_paths=PackedStringArray("audio_manager")]
 script = ExtResource("16_vtvfp")
+audio_manager = NodePath("../AudioManager")
+abilities = Array[ExtResource("8_shd1k")]([ExtResource("18_pbasc"), ExtResource("19_phavy"), ExtResource("20_pgrd"), ExtResource("21_pprov")])

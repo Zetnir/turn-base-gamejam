@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://cpaprovoc0001"]
+
+[ext_resource type="Script" uid="uid://beoqj0ksyjmlh" path="res://Scripts/Resources/ability_data.gd" id="1_abil"]
+
+[resource]
+script = ExtResource("1_abil")
+ability_name = "provocation"
+action_type = 5
+anim = "provocation"
+percent_reduc = 30
+action_point = 4
+description = "You're so annoying, If i could i would hit you too"
